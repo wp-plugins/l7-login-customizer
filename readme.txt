@@ -48,8 +48,8 @@ Installation Instructions:
 	
 == Frequently Asked Questions ==
 
-Q - What size image is the best to upload as a logo?
-A - By default the height of the logo is set at 200px. Depending on the image it can vary.  Try a few different sizes to see what you like best.
+<em>Q</em> - What size image is the best to upload as a logo?<br />
+<em>A</em> - By default the height of the logo is set at 200px. Depending on the image it can vary.  Try a few different sizes to see what you like best.
 
 == Screenshots ==
 
