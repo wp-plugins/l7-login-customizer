@@ -49,8 +49,7 @@ Installation Instructions:
 == Frequently Asked Questions ==
 
 Q - What size image is the best to upload as a logo?
-
-A - An image in the landscape orientation works best.  Depending on the image it can vary.  Try a few different sizes to see what you like best.
+A - By default the height of the logo is set at 200px. Depending on the image it can vary.  Try a few different sizes to see what you like best.
 
 == Screenshots ==
 
