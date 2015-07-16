@@ -328,16 +328,16 @@ class Jsm_Custom_Login_Functions {
 					$options[$key] = '00A5E2';
 					break;
 				case 'link_url':
-					$option[$key] = '00A5E2';
+					$options[$key] = '00A5E2';
 					break;
 				case 'hover_title':
-					$option[$key] = 'L7 Custom Login';
+					$options[$key] = 'L7 Login Customizer';
 					break;
 				case 'text_color':
-					$option[$key] = '000';
+					$options[$key] = '000';
 					break;
 				case 'logo_height':
-					$option[$key] = '200px';
+					$options[$key] = '200px';
 					break;
 				default: 
 					$options[$key] = '';
