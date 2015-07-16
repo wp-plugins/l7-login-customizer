@@ -4,5 +4,11 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit();
 }
 
-// Remove any options and tables created by this plugin.
+$option_name = 'jsm_custom_login_options';
+
+// Delete options
+delete_option( $option_name );
+
+// For site options in multisite
+delete_site_option( $option_name );  
 ?>
