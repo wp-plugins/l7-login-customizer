@@ -110,7 +110,7 @@ if ( ! class_exists( 'JsmGenericClass' )  ) {
 			$login_logo_image_css_values .= 'background-size:' . $options['logo_height'] . ';';
 
 			// Logo image container
-			$login_logo_image_container_css_values = 'height:' . $options['logo_height'] . 'px !important;';
+			$login_logo_image_container_css_values = 'height:' . $options['logo_height'] . ' !important;';
 			$login_logo_image_container_css_values .= 'width:inherit;';
 
 			// If the text field is not blank. Then add the hex value.
