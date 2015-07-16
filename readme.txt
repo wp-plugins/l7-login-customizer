@@ -12,7 +12,7 @@ For customizing the login, logout, register pages.
 
 == Description ==
 
-For customizing the login/logout/register pages. Gives simple options to choose colors and upload logos.  Custom css can be added to fully customize the page.
+For customizing the login, logout, register pages. Gives simple options to choose colors and upload logos.  Custom css can be added to fully customize the page.
 
 Options:
 
@@ -38,11 +38,12 @@ Advanced Users:
 
 Installation Instructions:
 <ul>
-		<li>Download the latest ZIP file from Wordpress.org or from github here: <a href="https://github.com/jeffreysmattson/simple-login-customizer/releases">latest release</a></li>
+		<li>Download the latest ZIP Wordpress.org.</li>
 		<li>Login to your Wordpress installation as an administrator</li>
 		<li>Go to Plugins -> Add New -> Upload Plugin</li>
 		<li>Upload the ZIP file</li>
 		<li>Activate the Plugin after it is installed</li>
+		<li>Make changes in settings</li>
 </ul>
 	
 == Frequently Asked Questions ==
