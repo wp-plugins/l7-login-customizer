@@ -58,22 +58,19 @@ A - By default the height of the logo is set at 200px. Depending on the image it
 
 == Changelog ==
 
-= 2.1.1 =
+= 2.0.0 =
 *Most stable release
 *Fixed install bug.
 
-= 2.1 =
-*Added more options
-*Font Awesome Icons
 
 == Upgrade Notice ==
 
 = 2.0 =
 *Added colorpicker
 
-= 1.2 =
+= 1.9 =
 *This version fixes a security related bug.
 *Added custom CSS option
 
-= 1.0 =
+= 1.8 =
 This version fixes a security related bug. 
