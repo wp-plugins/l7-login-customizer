@@ -328,7 +328,7 @@ class Jsm_Custom_Login_Functions {
 					$options[$key] = '00A5E2';
 					break;
 				case 'link_url':
-					$options[$key] = '00A5E2';
+					$options[$key] = 'yoursite.com';
 					break;
 				case 'hover_title':
 					$options[$key] = 'L7 Login Customizer';

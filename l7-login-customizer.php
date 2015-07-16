@@ -59,7 +59,7 @@ if ( ! class_exists( 'JsmGenericClass' )  ) {
 		 * @return [array]        Returns the link array with the new link added.
 		 */
 		function jsm_custom_login_settings_link( $links ) {
-			$url = explode( "/", plugin_basename( __FILE__ ) );
+			$url = explode( '/', plugin_basename( __FILE__ ) );
 			$plugin_name = $url[0];
 			$settings_link = '<a href="options-general.php?page=' . esc_attr( $plugin_name ) . '/includes/options-page">Settings</a>';
 			array_unshift( $links, $settings_link );
@@ -72,7 +72,7 @@ if ( ! class_exists( 'JsmGenericClass' )  ) {
 		 * @return void
 		 */
 		public function jsm_custom_login_options_enqueue_scripts() {
-			$url = explode( "/", plugin_basename( __FILE__ ) );
+			$url = explode( '/', plugin_basename( __FILE__ ) );
 			$plugin_name = $url[0];
 			$settings_page_url = 'settings_page_' . $plugin_name . '/includes/options-page';
 			wp_register_script( 'jsm-upload', plugins_url( 'js/jsm-upload.js', __FILE__ ) , array('jquery', 'media-upload', 'thickbox') );
@@ -103,17 +103,14 @@ if ( ! class_exists( 'JsmGenericClass' )  ) {
 		public function jsm_my_login_head() {
 			$options = get_option( 'jsm_custom_login_options' );
 
-			// Container Adjustment
-			$cont_adjust = ((int)$options['logo_height'] * .70);
-
-			// Css values for the logo image
-			$login_logo_image_css_values = "background-image: url(" . $options['text_string'] . ");";
+			// CSS values for the logo image
+			$login_logo_image_css_values = 'background-image: url(' . $options['text_string'] . ');';
 
 			// Size for logo image
 			$login_logo_image_css_values .= 'background-size:' . $options['logo_height'] . ';';
 
 			// Logo image container
-			$login_logo_image_container_css_values = 'height:' . $cont_adjust . 'px;';
+			$login_logo_image_container_css_values = 'height:' . $options['logo_height'] . 'px !important;';
 			$login_logo_image_container_css_values .= 'width:inherit;';
 
 			// If the text field is not blank. Then add the hex value.
@@ -163,9 +160,9 @@ if ( ! class_exists( 'JsmGenericClass' )  ) {
 			?>
 			<style>
 				<?php
-				foreach ($css_content as $css ){
+				foreach ( $css_content as $css ){
 					echo esc_html( $css );
-				} 
+				}
 				?> 
 			</style>
 			<?php
