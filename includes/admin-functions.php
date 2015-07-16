@@ -336,6 +336,9 @@ class Jsm_Custom_Login_Functions {
 				case 'text_color':
 					$option[$key] = '000';
 					break;
+				case 'logo_height':
+					$option[$key] = '200px';
+					break;
 				default: 
 					$options[$key] = '';
 			}
