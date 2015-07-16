@@ -14,7 +14,7 @@ For customizing the login, logout, register pages.
 
 For customizing the login, logout, register pages. Gives simple options to choose colors and upload logos.  Custom css can be added to fully customize the page.
 
-Options:
+Users can::
 <ul>
 	<li>Upload Logo</li>
 	<li>Set Logo Height and Width</li>
@@ -25,12 +25,8 @@ Options:
 	<li>Set Text Color</li>
 	<li>Set Link Color</li>
 	<li>Preview</li>
+	<li>Add Custom CSS</li>
 </ul>
-Advanced Users:
-<ul>
-<li>Add Custom CSS</li>
-</ul>
-
 
 == Installation ==
 
@@ -41,7 +37,7 @@ Installation Instructions:
 		<li>Go to Plugins -> Add New -> Upload Plugin</li>
 		<li>Upload the ZIP file</li>
 		<li>Activate the Plugin after it is installed</li>
-		<li>Make changes in settings</li>
+		<li>Make changes in settings -> Custom Login</li>
 </ul>
 	
 == Frequently Asked Questions ==
