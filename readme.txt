@@ -57,7 +57,7 @@ Installation Instructions:
 == Changelog ==
 
 = 2.0.1 =
-*Most stable release
+*Most stable release<br />
 *Fixed remove data on uninstall bug.
 
 = 2.0.0 =
