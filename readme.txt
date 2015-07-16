@@ -3,8 +3,8 @@ Contributors: jeffreysmattson
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=J25EL9NHCB7XL
 Tags: login, customizer, register, logout
 Requires at least: 3.0.1
-Tested up to: 3.4
-Stable tag: 4.3
+Tested up to: 4.2.2
+Stable tag:
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,7 +15,6 @@ For customizing the login, logout, register pages.
 For customizing the login, logout, register pages. Gives simple options to choose colors and upload logos.  Custom css can be added to fully customize the page.
 
 Options:
-
 <ul>
 	<li>Upload Logo</li>
 	<li>Set Logo Height and Width</li>
@@ -27,7 +26,6 @@ Options:
 	<li>Set Link Color</li>
 	<li>Preview</li>
 </ul>
-
 Advanced Users:
 <ul>
 <li>Add Custom CSS</li>

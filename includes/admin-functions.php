@@ -160,7 +160,7 @@ class Jsm_Custom_Login_Functions {
 
 		?>
 	        <input type="text" id="text_string" name="jsm_custom_login_options[text_string]" value="<?php echo esc_attr( esc_url( $text_string ) ); ?>" />
-	        <input id="upload_logo_button" type="button" class="button" value="<?php echo 'Upload Logo'; ?>" />
+	        <input id="upload_logo_button" type="button" class="button" value="<?php echo 'Select Logo'; ?>" />
 	        <span class="description"><?php echo 'Upload an image for the logo.'; ?></span>
 	        <span class="description"><?php echo '<br />Image URL'; ?></span>
 	    <?php
@@ -207,7 +207,7 @@ class Jsm_Custom_Login_Functions {
 				<option value="center" <?php echo ( $options['image_pos'] == 'center' ) ? 'selected' : ''; ?>>Center</option>
 				<option value="repeat" <?php echo ( $options['image_pos'] == 'repeat' ) ? 'selected' : ''; ?>>Repeat</option>
 			</select>
-			<input id="upload_bk_image_button" type="button" class="button" value="<?php echo 'Upload Image'; ?>" />
+			<input id="upload_bk_image_button" type="button" class="button" value="<?php echo 'Select Image'; ?>" />
 			<span class="description"><?php echo '<br />Image URL'; ?></span>
 		<?php
 	}
