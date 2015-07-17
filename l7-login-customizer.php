@@ -2,7 +2,7 @@
 /**
  * Plugin Name: l7 Login Customizer
  * Plugin URI: layer7web.com
- * Description: For customizing the login, logout, register pages.
+ * Description: For customizing the login, logout, and register pages.
  * Version: 2.0.2
  * Author: Jeff Mattson
  * Author URI: https://github.com/jeffreysmattson
