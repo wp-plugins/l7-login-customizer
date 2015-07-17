@@ -85,3 +85,4 @@ Users can:
 
 = 1.8 =
 This version fixes a security related bug. 
+w do 
