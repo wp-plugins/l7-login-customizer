@@ -42,7 +42,12 @@ Users can:
 == Frequently Asked Questions ==
 
 <em>Q</em> - What size image is the best to upload as a logo?<br />
-<em>A</em> - By default the height of the logo is set to 150px. Depending on the image it can vary.  
+<em>A</em> - By default the height of the logo is set to 150px. Depending on the image it can vary.
+<br />
+<br />
+<em>Q</em> - If I use a plugin that changes the URL of the login will this plugin stil work?<br/>
+<em>A</em> - Currently the plugin will not work in conjunction with any plugin that changes the login URL. I hope to have that working on the next release.<br>
+This plugin is not compatable with WP-Members as WP-Members already has a customized login.  
 
 == Screenshots ==
 
