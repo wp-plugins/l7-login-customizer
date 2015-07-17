@@ -1,7 +1,7 @@
 === L7 Login Customizer ===
 Contributors: jeffreysmattson
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=J25EL9NHCB7XL
-Tags: login, customizer, register, logout
+Tags: login, customize, register, logout, style, logo
 Requires at least: 3.0.1
 Tested up to: 4.2.2
 Stable tag:2.0.1
