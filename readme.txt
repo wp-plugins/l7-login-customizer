@@ -58,8 +58,10 @@ Users can:
 == Changelog ==
 
 = 2.0.2 =
-*Most stable release<br />
-*Added more customization options
+<ul>
+<li>Most stable release</li>
+<li>Added more customization options</li>
+</ul>
 
 = 2.0.1 =
 *Fixed remove data on uninstall bug.
