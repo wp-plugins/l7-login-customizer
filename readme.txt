@@ -64,10 +64,14 @@ Users can:
 </ul>
 
 = 2.0.1 =
-*Fixed remove data on uninstall bug.
+<ul>
+<li>Fixed remove data on uninstall bug.</li>
+</ul>
 
 = 2.0.0 =
-*Fixed install bug.
+<ul>
+<li>Fixed install bug.</li>
+</ul>
 
 
 == Upgrade Notice ==
