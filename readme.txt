@@ -47,7 +47,8 @@ Users can:
 <br />
 <em>Q</em> - If I use a plugin that changes the URL of the login will this plugin stil work?<br />
 <em>A</em> - Currently the plugin will not work in conjunction with any plugin that changes the login URL. I hope to have that working on the next release.<br>
-This plugin is not compatable with WP-Members as WP-Members already has a customized login.  
+<em>Q</em> - Is this plugin compatable with WP-Members?<br />
+<em>A</em> - This plugin is not compatable with WP-Members at this time<br />  
 
 == Screenshots ==
 
