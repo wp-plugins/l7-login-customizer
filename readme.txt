@@ -12,7 +12,7 @@ For customizing the login, logout, register pages.
 
 == Description ==
 
-For customizing the login, logout, register pages. Gives simple options to choose colors and upload logos.  Custom css can be added to fully customize the page.
+For customizing the login, logout, and register pages. Gives simple options to choose colors and upload logos.  Custom css can be added to fully customize the page.
 
 Users can::
 <ul>
