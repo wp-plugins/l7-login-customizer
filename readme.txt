@@ -30,7 +30,6 @@ Users can:
 
 == Installation ==
 
-Installation Instructions:
 <ul>
 		<li>Download the latest ZIP Wordpress.org.</li>
 		<li>Login to your Wordpress installation as an administrator</li>
@@ -43,7 +42,7 @@ Installation Instructions:
 == Frequently Asked Questions ==
 
 <em>Q</em> - What size image is the best to upload as a logo?<br />
-<em>A</em> - By default the height of the logo is set at 200px. Depending on the image it can vary.  Try a few different sizes to see what you like best.
+<em>A</em> - By default the height of the logo is set to 150px. Depending on the image it can vary.  
 
 == Screenshots ==
 
