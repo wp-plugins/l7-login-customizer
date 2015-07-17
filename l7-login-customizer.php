@@ -121,6 +121,9 @@ if ( ! class_exists( 'JsmGenericClass' )  ) {
 			// Link hover color
 			$login_logo_form_link_hover = 'color:#' . $options['link_text_hover_color'] . ';';
 
+			//Custom CSS
+			$login_logo_custom_css = $options['text_area'];
+
 			// If the text field is not blank. Then add the hex value.
 			if ( $options['link_text_color'] != '' ){
 				$login_link_css_values = 'color:#' . $options['link_text_color'] . ';';
@@ -175,6 +178,9 @@ if ( ! class_exists( 'JsmGenericClass' )  ) {
 
 			// Form Background
 			$css_content['form_background'] = '#login {' . $login_logo_form_background . '}';
+
+			// Custom CSS
+			$css_content['text_area'] = $login_logo_custom_css;
 
 			ob_start();
 			?>
