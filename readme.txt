@@ -1,10 +1,10 @@
 === L7 Login Customizer ===
 Contributors: jeffreysmattson
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=J25EL9NHCB7XL
-Tags: login, customize, register, logout, style, logo
+Tags: change, custom, login, customize, register, logout, style, logo
 Requires at least: 3.0.1
 Tested up to: 4.2.2
-Stable tag:2.0.3
+Stable tag:2.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,7 +46,7 @@ Users can:
 <br />
 <br />
 <em>Q</em> - If I use a plugin that changes the URL of the login will this plugin stil work?<br />
-<em>A</em> - Currently the plugin will not work in conjunction with any plugin that changes the login URL. I hope to have that working on the next release.<br>
+<em>A</em> - Currently the plugin will not work in conjunction with any plugin that changes the login URL. I hope to have that working on the next release.<br><br />
 <em>Q</em> - Is this plugin compatable with WP-Members?<br />
 <em>A</em> - This plugin is not compatable with WP-Members at this time<br />  
 
@@ -57,12 +57,33 @@ Users can:
 
 == Changelog ==
 
+= 2.0.4 =
+<ul>
+<li>Most stable release</li>
+<li>Fixed Link Text Hover Color bug</li>
+</ul>
+
+= 2.0.3 =
+<ul>
+<li>Most stable release</li>
+<li>Fixed Custom CSS bug</li>
+</ul>
+
+= 2.0.2 =
+<ul>
+<li>Most stable release</li>
+<li>Added more customization options</li>
+</ul>
+
 = 2.0.1 =
-*Most stable release<br />
-*Fixed remove data on uninstall bug.
+<ul>
+<li>Fixed remove data on uninstall bug.</li>
+</ul>
 
 = 2.0.0 =
-*Fixed install bug.
+<ul>
+<li>Fixed install bug.</li>
+</ul>
 
 
 == Upgrade Notice ==
@@ -76,3 +97,4 @@ Users can:
 
 = 1.8 =
 This version fixes a security related bug. 
+w do 

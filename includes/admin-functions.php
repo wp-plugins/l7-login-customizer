@@ -32,12 +32,16 @@ class Jsm_Custom_Login_Functions {
 		add_settings_field( 'jsm_custom_login_logo_preview', '<i class="fa fa-picture-o"></i> Logo Preview', array( $this, 'jsm_custom_login_setting_logo_preview' ), 'simple-login-customizer', 'jsm_custom_login_main' );
 		add_settings_field( 'jsm_custom_login_logo_link_url', '<i class="fa fa-link"></i> Logo Link URL', array( $this, 'jsm_custom_login_setting_link_url' ) , 'simple-login-customizer', 'jsm_custom_login_main', array( 'label_for' => 'link_url' ) );
 		add_settings_field( 'jsm_custom_login_logo_hover_title', '<i class="fa fa-globe"></i> Logo Image Title', array( $this, 'jsm_custom_login_setting_hover_title' ) , 'simple-login-customizer', 'jsm_custom_login_main', array( 'label_for' => 'hover_title' ) );
-		add_settings_field( 'jsm_custom_login_logo_bk_color', '<i class="fa fa-paint-brush"></i> Background Color', array( $this, 'jsm_custom_login_setting_bk_color' ), 'simple-login-customizer', 'jsm_custom_login_main', array( 'label_for' => 'bk_color' ) );
+		add_settings_field( 'jsm_custom_login_logo_bk_color', '<i class="fa fa-paint-brush"></i> Page&#8217;s Background Color', array( $this, 'jsm_custom_login_setting_bk_color' ), 'simple-login-customizer', 'jsm_custom_login_main', array( 'label_for' => 'bk_color' ) );
+		add_settings_field( 'jsm_custom_login_form', '<i class="fa fa-paint-brush"></i> Form&#8217;s Background Color', array( $this, 'jsm_custom_login_forms_background' ) , 'simple-login-customizer', 'jsm_custom_login_main', array( 'label_for' => 'form_background' ) );
 		add_settings_field( 'jsm_custom_login_logo_bk_image', '<i class="fa fa-upload"></i> Background Image', array( $this, 'jsm_custom_login_setting_bk_image' ), 'simple-login-customizer', 'jsm_custom_login_main', array( 'label_for' => 'bk_image' ) );
 		add_settings_field( 'jsm_custom_login_bk_image_preview', '<i class="fa fa-picture-o"></i> Background Image Preview', array( $this, 'jsm_custom_login_setting_bk_image_preview' ), 'simple-login-customizer', 'jsm_custom_login_main' );
 		add_settings_field( 'jsm_custom_login_logo_text_color', '<i class="fa fa-paint-brush"></i> Text Color', array( $this, 'jsm_custom_login_setting_text_color' ), 'simple-login-customizer', 'jsm_custom_login_main', array( 'label_for' => 'text_color' ) );
 		add_settings_field( 'jsm_custom_login_logo_link_text_color', '<i class="fa fa-paint-brush"></i> Link Text Color', array( $this, 'jsm_custom_login_setting_link_text_color' ), 'simple-login-customizer', 'jsm_custom_login_main', array( 'label_for' => 'link_text_color' ) );
+		add_settings_field( 'jsm_custom_login_logo_link_text_hover_color', '<i class="fa fa-paint-brush"></i> Link Text Hover Color', array( $this, 'jsm_custom_login_setting_link_text_hover_color' ), 'simple-login-customizer', 'jsm_custom_login_main', array( 'label_for' => 'link_text_hover_color' ) );
+
 		add_settings_field( 'jsm_custom_login_css', '<i class="fa fa-css3"></i> Custom CSS', array( $this, 'jsm_custom_login_setting_css_input' ) , 'simple-login-customizer', 'jsm_custom_login_main', array( 'label_for' => 'text_area' ) );
+		
 
 		// Replace text in logo upload.
 		if ( 'media-upload.php' == $pagenow || 'async-upload.php' == $pagenow ) {
@@ -151,6 +155,18 @@ class Jsm_Custom_Login_Functions {
 	}
 
 	/**
+	 * Link text hover color. For the links to register and return to homepage.
+	 * @return html 
+	 */
+	public function jsm_custom_login_setting_link_text_hover_color() {
+		$options = get_option( 'jsm_custom_login_options' );
+		$text_string = $this->jsm_custom_login_isset( $options, 'link_text_hover_color' );
+		$output = "<input id='link_text_hover_color' class='color' name='jsm_custom_login_options[link_text_hover_color]' type='text' value='" . esc_attr( $text_string ). "' style='width:40%;'>";
+		$output .= "<br /><span class='description'>6 digit hex color code</span>";
+		echo $output;
+	}
+
+	/**
 	 * Logo Upload
 	 * @return html
 	 */
@@ -227,6 +243,18 @@ class Jsm_Custom_Login_Functions {
 	}
 
 	/**
+	 * Option for the background color of the form.  Set it to #fff as default.
+	 * @return html 
+	 */
+	public function jsm_custom_login_forms_background() {
+		$options = get_option( 'jsm_custom_login_options' );
+		$text_string = $this->jsm_custom_login_isset( $options, 'form_background' );
+		$output = "<input id='form_background' class='color' name='jsm_custom_login_options[form_background]' type='text' value='" . esc_attr( $text_string ). "' style='width:40%;'>";
+		$output .= "<br /><span class='description'>6 digit hex color code</span>";
+		echo $output;
+	}
+
+	/**
 	 * Change text in file upload to make sense with what action that is taking place. The thickbox
 	 * button shows 'Insert into Post' which is not user friendly since they are uploading an image
 	 * to the settings page.  This filters the 'Insert into Post' and changes it to 'Select Image'.
@@ -295,14 +323,20 @@ class Jsm_Custom_Login_Functions {
 		// Text color hex value.
 		$arg_array['text_color'] = $this->jsm_sanitize_hex_color( $input['text_color'] );
 
+		// Form Background hex value.
+		$arg_array['form_background'] = $this->jsm_sanitize_hex_color( $input['form_background'] );
+
 		// CSS test_area sanitization
 		$arg_array['text_area'] = wp_kses( $input['text_area'], $allowed );
 
 		// Custom CSS link text color hex value
 		$arg_array['link_text_color'] = $this->jsm_sanitize_hex_color( $input['link_text_color'] );
 
+		// Custom CSS link text color hex value
+		$arg_array['link_text_hover_color'] = $this->jsm_sanitize_hex_color( $input['link_text_hover_color'] );
+
 		// Image position repeat or center.
-		if ( ( $input['image_pos'] != 'repeat' ) && ( $input['image_pos'] != 'center' ) ) {
+		if ( ( 'repeat' != $input['image_pos'] ) && ( 'center' != $input['image_pos'] ) ) {
 			$arg_array['image_pos'] = 'repeat';
 		}
 		else {
@@ -337,9 +371,15 @@ class Jsm_Custom_Login_Functions {
 					$options[$key] = '000';
 					break;
 				case 'logo_height':
-					$options[$key] = '200px';
+					$options[$key] = '150px';
 					break;
-				default: 
+				case 'form_background':
+					$options[$key] = 'ffffff';
+					break;
+				case 'link_text_hover_color':
+					$options[$key] = '00a0d2';
+					break;
+				default:
 					$options[$key] = '';
 			}
 			return $options[$key];

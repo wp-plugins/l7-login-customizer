@@ -2,8 +2,8 @@
 /**
  * Plugin Name: l7 Login Customizer
  * Plugin URI: layer7web.com
- * Description: For customizing the login, logout, register pages.
- * Version: 2.0.2
+ * Description: For customizing the login, logout, and register pages.
+ * Version: 2.0.3
  * Author: Jeff Mattson
  * Author URI: https://github.com/jeffreysmattson
  * License: GPLv2 or later
@@ -113,6 +113,17 @@ if ( ! class_exists( 'JsmGenericClass' )  ) {
 			$login_logo_image_container_css_values = 'height:' . $options['logo_height'] . ' !important;';
 			$login_logo_image_container_css_values .= 'width:inherit;';
 
+			// Login form background
+			$login_logo_form_background = 'background-color:#' . $options['form_background'] . ';';
+			$login_logo_form_background .= 'padding:30px 0 0;';
+			$login_logo_form_background .= 'margin-top:30px;';
+
+			// Link hover color
+			$login_logo_form_link_hover = 'color:#' . $options['link_text_hover_color'] . ';';
+
+			//Custom CSS
+			$login_logo_custom_css = $options['text_area'];
+
 			// If the text field is not blank. Then add the hex value.
 			if ( $options['link_text_color'] != '' ){
 				$login_link_css_values = 'color:#' . $options['link_text_color'] . ';';
@@ -147,6 +158,9 @@ if ( ! class_exists( 'JsmGenericClass' )  ) {
 			// The login nav and back to blog a links.
 			$css_content['login_link'] = '.login #nav a, .login #backtoblog a {' . $login_link_css_values . '}';
 
+			// The login nav and back to blog a links color on hover.
+			$css_content['login_link_hover'] = '.login #nav a:hover, .login #backtoblog a:hover {' . $login_logo_form_link_hover . '}';
+
 			// The login label
 			$css_content['login_label'] = '.login label {' . $login_label_css_values . '}';
 
@@ -155,6 +169,18 @@ if ( ! class_exists( 'JsmGenericClass' )  ) {
 
 			// Login logo container
 			$css_content['login_logo_container'] = '.login h1 a {' . $login_logo_image_container_css_values . '}';
+
+			// Login Form Background set to transparent
+			$css_content['login_form'] = '.login form {background:transparent;}';
+
+			// Login Message
+			$css_content['login_message'] = '.login .message {background:transparent;}';
+
+			// Form Background
+			$css_content['form_background'] = '#login {' . $login_logo_form_background . '}';
+
+			// Custom CSS
+			$css_content['text_area'] = $login_logo_custom_css;
 
 			ob_start();
 			?>
