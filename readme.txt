@@ -65,13 +65,11 @@ Users can:
 
 = 2.0.3 =
 <ul>
-<li>Most stable release</li>
 <li>Fixed Custom CSS bug</li>
 </ul>
 
 = 2.0.2 =
 <ul>
-<li>Most stable release</li>
 <li>Added more customization options</li>
 </ul>
 
