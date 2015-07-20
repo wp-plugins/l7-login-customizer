@@ -1,27 +1,27 @@
 === L7 Login Customizer ===
 Contributors: jeffreysmattson
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=J25EL9NHCB7XL
-Tags: change, custom, login, customize, register, logout, style, logo
+Tags: branding, custom login, login background, login logo, screen, style login, theme login, wp-login, css, change, custom, login, customize, register, logout, style, logo
 Requires at least: 3.0.1
 Tested up to: 4.2.2
-Stable tag:2.0.4
+Stable tag:2.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-For customizing the login, logout, and register pages. 
+For customizing the login, logout, and register pages. Add a custom logo and background image easily. 
 
 == Description ==
 
-For customizing the login, logout, and register pages. Gives simple options to choose colors and upload logos.  Custom css can be added to fully customize the page.
+For customizing the login, logout, and register pages. Gives simple options to choose colors and to upload a custom logo giving your clients a fully cusomized experience.  Custom css can be used giving you complete control in customizing the login, logout, and register pages.
 
 Users can:
 <ul>
-	<li>Upload Logo</li>
+	<li>Add Custom Logo to Login Form</li>
+	<li>Add Background Image</li>
 	<li>Set Logo Height and Width</li>
 	<li>Set Image Link</li>
 	<li>Set Image Title</li>
-	<li>Upload Background Image</li>
-	<li>Background Color</li>
+	<li>Set Background Color</li>
 	<li>Set Text Color</li>
 	<li>Set Link Color</li>
 	<li>Preview</li>
@@ -57,10 +57,15 @@ Users can:
 
 == Changelog ==
 
-= 2.0.4 =
+= 2.0.5 =
 <ul>
 <li>Most stable release</li>
-<li>Fixed Link Text Hover Color bug</li>
+<li>Made the WP logo visable on after install</li>
+</ul>
+
+= 2.0.4 =
+<ul>
+<li>Fixed link color bug</li>
 </ul>
 
 = 2.0.3 =
@@ -82,17 +87,3 @@ Users can:
 <ul>
 <li>Fixed install bug.</li>
 </ul>
-
-
-== Upgrade Notice ==
-
-= 2.0 =
-*Added colorpicker
-
-= 1.9 =
-*This version fixes a security related bug.
-*Added custom CSS option
-
-= 1.8 =
-This version fixes a security related bug. 
-w do 

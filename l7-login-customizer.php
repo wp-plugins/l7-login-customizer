@@ -2,8 +2,8 @@
 /**
  * Plugin Name: l7 Login Customizer
  * Plugin URI: layer7web.com
- * Description: For customizing the login, logout, and register pages.
- * Version: 2.0.3
+ * Description: For customizing the login, logout, and register pages. Add a custom logo and background image easily. 
+ * Version: 2.0.5
  * Author: Jeff Mattson
  * Author URI: https://github.com/jeffreysmattson
  * License: GPLv2 or later
@@ -103,8 +103,18 @@ if ( ! class_exists( 'JsmGenericClass' )  ) {
 		public function jsm_my_login_head() {
 			$options = get_option( 'jsm_custom_login_options' );
 
-			// CSS values for the logo image
-			$login_logo_image_css_values = 'background-image: url(' . $options['text_string'] . ');';
+			/**
+			 * If there is not background image url selected (on install) then don't write anything into the css.
+			 * This way the standard wp logo will show on install
+			 */
+			if ( $options['text_string'] != '' ){
+
+				// CSS values for the logo image
+				$login_logo_image_css_values = 'background-image: url(' . $options['text_string'] . ');';
+			}
+			else {
+				$login_logo_image_css_values = '';
+			}
 
 			// Size for logo image
 			$login_logo_image_css_values .= 'background-size:' . $options['logo_height'] . ';';
