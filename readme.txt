@@ -4,15 +4,15 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: branding, custom login, login background, login logo, screen, style login, theme login, wp-login, css, change, custom, login, customize, register, logout, style, logo
 Requires at least: 3.0.1
 Tested up to: 4.2.2
-Stable tag:2.0.5
+Stable tag:2.0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-For customizing the login, logout, and register pages. Add a custom logo and background image easily. 
+Customize the login, logout, and register pages. Add a custom logo and background image easily.
 
 == Description ==
 
-For customizing the login, logout, and register pages. Gives simple options to choose colors and to upload a custom logo giving your clients a fully cusomized experience.  Custom css can be used giving you complete control in customizing the login, logout, and register pages.
+Customize the login, logout, and register pages. Gives simple options to choose colors and to upload a custom logo giving your clients a fully cusomized experience.  Custom css can be used giving you complete control in customizing the login, logout, and register pages.
 
 Users can:
 <ul>
@@ -57,9 +57,15 @@ Users can:
 
 == Changelog ==
 
-= 2.0.5 =
+= 2.0.6 =
 <ul>
 <li>Most stable release</li>
+<li>Refactoring</li>
+<li>Install bug corrected.</li>
+</ul>
+
+= 2.0.5 =
+<ul>
 <li>Made the WP logo visable on after install</li>
 </ul>
 

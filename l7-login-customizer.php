@@ -3,7 +3,7 @@
  * Plugin Name: l7 Login Customizer
  * Plugin URI: layer7web.com
  * Description: For customizing the login, logout, and register pages. Add a custom logo and background image easily. 
- * Version: 2.0.5
+ * Version: 2.0.6
  * Author: Jeff Mattson
  * Author URI: https://github.com/jeffreysmattson
  * License: GPLv2 or later
@@ -180,11 +180,26 @@ if ( ! class_exists( 'JsmGenericClass' )  ) {
 			// Login logo container
 			$css_content['login_logo_container'] = '.login h1 a {' . $login_logo_image_container_css_values . '}';
 
-			// Login Form Background set to transparent
-			$css_content['login_form'] = '.login form {background:transparent;}';
+			/**
+			 * When first installed we want the login form to have a white background.
+			 * This is the form that is on top of the larger id of #login.  When the color of
+			 * the #login is chosen the these should be set to transparent.
+			 */
+			if( '' == $options['form_background'] ){
+			
+				// Login Form Background set to white
+				$css_content['login_form'] = '.login form {background:#fff;}';
 
-			// Login Message
-			$css_content['login_message'] = '.login .message {background:transparent;}';
+				// Login Message background set to white
+				$css_content['login_message'] = '.login .message {background:#fff;}';
+			}
+			else {
+				// Login Form Background set to transparent
+				$css_content['login_form'] = '.login form {background:transparent;}';
+
+				// Login Message Background set to white.
+				$css_content['login_message'] = '.login .message {background:transparent;}';
+			}
 
 			// Form Background
 			$css_content['form_background'] = '#login {' . $login_logo_form_background . '}';

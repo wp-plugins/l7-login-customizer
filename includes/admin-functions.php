@@ -359,22 +359,22 @@ class Jsm_Custom_Login_Functions {
 			// Add default settings here
 			switch ($key) {
 				case 'link_text_color':
-					$options[$key] = '00A5E2';
+					$options[$key] = '999999';
 					break;
 				case 'link_url':
-					$options[$key] = 'yoursite.com';
+					$options[$key] = '';
 					break;
 				case 'hover_title':
-					$options[$key] = 'L7 Login Customizer';
+					$options[$key] = 'Logo Hover Title';
 					break;
 				case 'text_color':
-					$options[$key] = '000';
+					$options[$key] = '777';
 					break;
 				case 'logo_height':
-					$options[$key] = '150px';
+					$options[$key] = '100px';
 					break;
 				case 'form_background':
-					$options[$key] = 'ffffff';
+					$options[$key] = '';
 					break;
 				case 'link_text_hover_color':
 					$options[$key] = '00a0d2';
