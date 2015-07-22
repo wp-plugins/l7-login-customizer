@@ -29,7 +29,7 @@ class Jsm_Settings_Display {
 	}
 
 	/**
-	 * Displays the settings fields by caling settings_fields() and do_settings_sections(). Contains the
+	 * Displays the settings fields by calling settings_fields() and do_settings_sections(). Contains the
 	 * div that holds the iframe for diplaying the preview of the login screen.  Adds add_thickbox().
 	 * @return html
 	 */
@@ -49,7 +49,7 @@ class Jsm_Settings_Display {
 		</div>
 		<div id="jsm_custom_login_display" style="display:none;">
 		     <p>
-		          <iframe src="<?php echo esc_url( site_url() ); ?>/wp-login.php" scrolling="no" style="width:100%; height:900px; overflow:hidden;"></iframe>
+		          <iframe src="<?php echo esc_url( wp_login_url() ) ?>" scrolling="no" style="width:100%; height:900px; overflow:hidden;"></iframe>
 		     </p>
 		</div>
 		<?php add_thickbox();

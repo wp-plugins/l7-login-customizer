@@ -3,7 +3,7 @@
  * Plugin Name: l7 Login Customizer
  * Plugin URI: layer7web.com
  * Description: For customizing the login, logout, and register pages. Add a custom logo and background image easily. 
- * Version: 2.0.6
+ * Version: 2.0.7
  * Author: Jeff Mattson
  * Author URI: https://github.com/jeffreysmattson
  * License: GPLv2 or later
