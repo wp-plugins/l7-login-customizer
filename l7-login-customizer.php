@@ -3,7 +3,7 @@
  * Plugin Name: l7 Login Customizer
  * Plugin URI: layer7web.com
  * Description: For customizing the login, logout, and register pages. Add a custom logo and background image easily. 
- * Version: 2.0.7
+ * Version: 2.0.8
  * Author: Jeff Mattson
  * Author URI: https://github.com/jeffreysmattson
  * License: GPLv2 or later
@@ -75,8 +75,10 @@ if ( ! class_exists( 'JsmGenericClass' )  ) {
 			$url = explode( '/', plugin_basename( __FILE__ ) );
 			$plugin_name = $url[0];
 			$settings_page_url = 'settings_page_' . $plugin_name . '/includes/options-page';
-			wp_register_script( 'jsm-upload', plugins_url( 'js/jsm-upload.js', __FILE__ ) , array('jquery', 'media-upload', 'thickbox') );
-			wp_register_script( 'jsm-color', plugins_url( 'js/color/jscolor.js', __FILE__ ) , array('jquery') );
+			wp_register_script( 'jsm-upload', plugins_url( 'assets/js/jsm-upload.js', __FILE__ ), array('jquery', 'media-upload', 'thickbox') );
+			wp_register_script( 'jsm-color', plugins_url( 'assets/js/color/jscolor.js', __FILE__ ), array('jquery') );
+			wp_register_script( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js', array('jquery') );
+			wp_register_script( 'bootstrap-color', plugins_url( 'assets/dist/js/bootstrap-colorpicker.js', __FILE__ ), array('jquery') );
 			if ( $settings_page_url == get_current_screen() -> id ) {
 				wp_enqueue_script( 'jquery' );
 				wp_enqueue_script( 'thickbox' );
@@ -84,13 +86,19 @@ if ( ! class_exists( 'JsmGenericClass' )  ) {
 				wp_enqueue_script( 'media-upload' );
 				wp_enqueue_script( 'jsm-upload' );
 				wp_enqueue_script( 'jsm-color' );
+				wp_enqueue_script( 'bootstrap' );
+				wp_enqueue_script( 'bootstrap-color' );
 			}
 
 			// For Font Awesome on Settings page
 			wp_register_style( 'jsm-font-awesome', 'http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' );
-			wp_register_style( 'jsm-main-css' , plugins_url( 'css/jsm-main.css', __FILE__ ) );
+			wp_register_style( 'jsm-main-css' , plugins_url( 'assets/css/jsm-main.css', __FILE__ ) );
+			wp_register_style( 'bootstrap-css' , 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css' );
+			wp_register_style( 'bootstrap-color', plugins_url( 'assets/dist/css/bootstrap-colorpicker.css', __FILE__ ) );
 			if ( $settings_page_url == get_current_screen() -> id ) {
 				wp_enqueue_style( 'jsm-font-awesome' );
+				wp_enqueue_style( 'bootstrap-css' );
+				wp_enqueue_style( 'bootstrap-color' );
 				wp_enqueue_style( 'jsm-main-css' );
 			}
 		}
@@ -124,29 +132,32 @@ if ( ! class_exists( 'JsmGenericClass' )  ) {
 			$login_logo_image_container_css_values .= 'width:inherit;';
 
 			// Login form background
-			$login_logo_form_background = 'background-color:#' . $options['form_background'] . ';';
+			$login_logo_form_background = 'background-color:' . $options['form_background'] . ';';
 			$login_logo_form_background .= 'padding:30px 0 0;';
 			$login_logo_form_background .= 'margin-top:30px;';
 
+			// Login small form background
+			$login_logo_small_form_background = 'background-color:' . $options['small_form_background'] . ';';
+
 			// Link hover color
-			$login_logo_form_link_hover = 'color:#' . $options['link_text_hover_color'] . ';';
+			$login_logo_form_link_hover = 'color:' . $options['link_text_hover_color'] . ';';
 
 			//Custom CSS
 			$login_logo_custom_css = $options['text_area'];
 
 			// If the text field is not blank. Then add the hex value.
 			if ( $options['link_text_color'] != '' ){
-				$login_link_css_values = 'color:#' . $options['link_text_color'] . ';';
+				$login_link_css_values = 'color:' . $options['link_text_color'] . ';';
 			}
 
 			// Color of the background
 			if ( $options['bk_color'] != '' ){
-				$body_html_css_values .= 'background-color:#' . $options['bk_color'] . ';';
+				$body_html_css_values .= 'background-color:' . $options['bk_color'] . ';';
 			}
 
 			// Color of the text in the login form.
 			if ( $options['text_color'] != '' ){
-				$login_label_css_values = 'color:#' . $options['text_color'] . ' !important;';
+				$login_label_css_values = 'color:' . $options['text_color'] . ' !important;';
 			}
 
 			// If the text field is not blank add the image URL. If repeat/center is selected
@@ -181,28 +192,25 @@ if ( ! class_exists( 'JsmGenericClass' )  ) {
 			$css_content['login_logo_container'] = '.login h1 a {' . $login_logo_image_container_css_values . '}';
 
 			/**
-			 * When first installed we want the login form to have a white background.
+			 * When first installed we want the large login form to have a transparent background.
 			 * This is the form that is on top of the larger id of #login.  When the color of
 			 * the #login is chosen the these should be set to transparent.
 			 */
 			if( '' == $options['form_background'] ){
 			
-				// Login Form Background set to white
-				$css_content['login_form'] = '.login form {background:#fff;}';
+				// Small Login Form Background set to white large set to transparent
+				$css_content['login_form'] = '#login {background:transparent;}';
+				$css_content['small_login_form'] = '.login form {background:#fff;}';
 
 				// Login Message background set to white
 				$css_content['login_message'] = '.login .message {background:#fff;}';
 			}
-			else {
-				// Login Form Background set to transparent
-				$css_content['login_form'] = '.login form {background:transparent;}';
-
-				// Login Message Background set to white.
-				$css_content['login_message'] = '.login .message {background:transparent;}';
-			}
 
 			// Form Background
 			$css_content['form_background'] = '#login {' . $login_logo_form_background . '}';
+
+			// Small Form Background
+			$css_content['small_login_form'] = '.login form {' . $login_logo_small_form_background . '}';
 
 			// Custom CSS
 			$css_content['text_area'] = $login_logo_custom_css;

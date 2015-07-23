@@ -44,7 +44,7 @@ class Jsm_Settings_Display {
 				do_settings_sections( 'simple-login-customizer' );
 			?>
 				<input name="Submit" class="button button-primary" type="submit" value="Save Changes" />
-				<a name="Preview of custom login. Only saved changes are shown here." href="#TB_inline?width=700&height=700&inlineId=jsm_custom_login_display" class="thickbox"><button class="button button-secondary">Preview</button></a>
+				<a name="Preview of custom login. Saved changes are shown here." href="#TB_inline?width=700&height=700&inlineId=jsm_custom_login_display" class="thickbox"><button class="button button-secondary">Preview</button></a>
 			</form> 
 		</div>
 		<div id="jsm_custom_login_display" style="display:none;">

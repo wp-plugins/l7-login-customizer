@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: branding, custom login, login background, login logo, screen, style login, theme login, wp-login, css, change, custom, login, customize, register, logout, style, logo
 Requires at least: 3.0.1
 Tested up to: 4.2.2
-Stable tag:2.0.7
+Stable tag:2.0.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -30,25 +30,35 @@ Users can:
 
 == Installation ==
 
+Option 1
 <ul>
-		<li>Download the latest ZIP Wordpress.org.</li>
-		<li>Login to your Wordpress installation as an administrator</li>
-		<li>Go to Plugins -> Add New -> Upload Plugin</li>
-		<li>Upload the ZIP file</li>
-		<li>Activate the Plugin after it is installed</li>
-		<li>Make changes in settings -> Custom Login</li>
+	<li>Login as administrator on a Wordpress site</li>
+	<li>Navigate to the plugins page</li>
+	<li>Click Add plugin</li>
+	<li>Search for "L7 Login Customizer"</li>
+	<li>Install and activate the plugin</li>
+</ul>
+Option 2
+<ul>
+	<li>Download the latest ZIP Wordpress.org.</li>
+	<li>Login to your Wordpress installation as an administrator</li>
+	<li>Go to Plugins -> Add New -> Upload Plugin</li>
+	<li>Upload the ZIP file</li>
+	<li>Activate the Plugin after it is installed</li>
+	<li>Make changes in settings -> Custom Login</li>
 </ul>
 	
 == Frequently Asked Questions ==
 
 <em>Q</em> - What size image is the best to upload as a logo?<br />
-<em>A</em> - By default the height of the logo is set to 150px. Depending on the image it can vary.
+<em>A</em> - Depending on the image it can vary but a square image fits bests without a lot of custom css. The height of the image is adjustable.
 <br />
 <br />
-<em>Q</em> - If I use a plugin that changes the URL of the login will this plugin stil work?<br />
-<em>A</em> - Currently the plugin will not work in conjunction with any plugin that changes the login URL. I hope to have that working on the next release.<br><br />
+<em>Q</em> - If I use a plugin that changes the URL of the login will this plugin still work?<br />
+<em>A</em> - Yes. This plugin currently is compatable with any plugin that changes the login url<br><br />
 <em>Q</em> - Is this plugin compatable with WP-Members?<br />
-<em>A</em> - This plugin is not compatable with WP-Members at this time<br />  
+<em>A</em> - This plugin is compatable with WP-Members although they have the option to use one of thier templates for login.  This will not customize that login page.<br />
+
 
 == Screenshots ==
 
@@ -57,9 +67,16 @@ Users can:
 
 == Changelog ==
 
-= 2.0. =
+= 2.0.8=
 <ul>
 <li>Most stable release</li>
+<li>Added Bootstrap Colorpicker!</li>
+<li>Added small form area setting</li>
+<li>File structure change</li>
+</ul>
+
+= 2.0.7=
+<ul>
 <li>Preview bug fixed</li>
 </ul>
 

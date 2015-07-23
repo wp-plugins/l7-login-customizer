@@ -26,7 +26,7 @@ class Jsm_Custom_Login_Functions {
 	public function jsm_custom_login_admin_init(){
 		global $pagenow;
 		register_setting( 'jsm_custom_login_options', 'jsm_custom_login_options', array( $this, 'jsm_custom_logo_sanitization' ) );
-		add_settings_section( 'jsm_custom_login_main', 'Custom Login Settings', array( $this, 'jsm_custom_login_section_text' ), 'simple-login-customizer' );
+		add_settings_section( 'jsm_custom_login_main', 'L7 Login Customizer', array( $this, 'jsm_custom_login_section_text' ), 'simple-login-customizer' );
 		add_settings_field( 'jsm_custom_logo_upload_options',  '<i class="fa fa-upload"></i> Logo Upload', array( $this, 'jsm_custom_login_logo_upload' ), 'simple-login-customizer', 'jsm_custom_login_main', array( 'label_for' => 'text_string' ) );
 		add_settings_field( 'jsm_custom_logo_size',  '<i class="fa fa-arrows-alt"></i> Set Logo Size', array( $this, 'jsm_custom_login_logo_size' ), 'simple-login-customizer', 'jsm_custom_login_main', array( 'label_for' => 'logo_size' ) );
 		add_settings_field( 'jsm_custom_login_logo_preview', '<i class="fa fa-picture-o"></i> Logo Preview', array( $this, 'jsm_custom_login_setting_logo_preview' ), 'simple-login-customizer', 'jsm_custom_login_main' );
@@ -34,6 +34,7 @@ class Jsm_Custom_Login_Functions {
 		add_settings_field( 'jsm_custom_login_logo_hover_title', '<i class="fa fa-globe"></i> Logo Image Title', array( $this, 'jsm_custom_login_setting_hover_title' ) , 'simple-login-customizer', 'jsm_custom_login_main', array( 'label_for' => 'hover_title' ) );
 		add_settings_field( 'jsm_custom_login_logo_bk_color', '<i class="fa fa-paint-brush"></i> Page&#8217;s Background Color', array( $this, 'jsm_custom_login_setting_bk_color' ), 'simple-login-customizer', 'jsm_custom_login_main', array( 'label_for' => 'bk_color' ) );
 		add_settings_field( 'jsm_custom_login_form', '<i class="fa fa-paint-brush"></i> Form&#8217;s Background Color', array( $this, 'jsm_custom_login_forms_background' ) , 'simple-login-customizer', 'jsm_custom_login_main', array( 'label_for' => 'form_background' ) );
+		add_settings_field( 'jsm_custom_login_small_form', '<i class="fa fa-paint-brush"></i> Small Form&#8217;s Background Color', array( $this, 'jsm_custom_login_small_forms_background' ) , 'simple-login-customizer', 'jsm_custom_login_main', array( 'label_for' => 'small_form_background' ) );
 		add_settings_field( 'jsm_custom_login_logo_bk_image', '<i class="fa fa-upload"></i> Background Image', array( $this, 'jsm_custom_login_setting_bk_image' ), 'simple-login-customizer', 'jsm_custom_login_main', array( 'label_for' => 'bk_image' ) );
 		add_settings_field( 'jsm_custom_login_bk_image_preview', '<i class="fa fa-picture-o"></i> Background Image Preview', array( $this, 'jsm_custom_login_setting_bk_image_preview' ), 'simple-login-customizer', 'jsm_custom_login_main' );
 		add_settings_field( 'jsm_custom_login_logo_text_color', '<i class="fa fa-paint-brush"></i> Text Color', array( $this, 'jsm_custom_login_setting_text_color' ), 'simple-login-customizer', 'jsm_custom_login_main', array( 'label_for' => 'text_color' ) );
@@ -41,7 +42,7 @@ class Jsm_Custom_Login_Functions {
 		add_settings_field( 'jsm_custom_login_logo_link_text_hover_color', '<i class="fa fa-paint-brush"></i> Link Text Hover Color', array( $this, 'jsm_custom_login_setting_link_text_hover_color' ), 'simple-login-customizer', 'jsm_custom_login_main', array( 'label_for' => 'link_text_hover_color' ) );
 
 		add_settings_field( 'jsm_custom_login_css', '<i class="fa fa-css3"></i> Custom CSS', array( $this, 'jsm_custom_login_setting_css_input' ) , 'simple-login-customizer', 'jsm_custom_login_main', array( 'label_for' => 'text_area' ) );
-		
+
 
 		// Replace text in logo upload.
 		if ( 'media-upload.php' == $pagenow || 'async-upload.php' == $pagenow ) {
@@ -55,7 +56,212 @@ class Jsm_Custom_Login_Functions {
 	 * @return html
 	 */
 	public function jsm_custom_login_section_text() {
-		echo '<p>Settings to customize the login page.</p>';
+		echo '<p>Change settings here to customize the login, logout, and registration pages.</p>';
+	}
+
+	/**
+	 * Logo Upload. This contains the logo upload text field, logo upload button
+	 * and short description.
+	 * @return html
+	 */
+	public function jsm_custom_login_logo_upload(){
+		$options = get_option( 'jsm_custom_login_options' );
+		$text_string = $this->jsm_custom_login_isset( $options, 'text_string' );
+        $content = "<div class='input-group' style='width:40%;'>
+        				<span class='input-group-btn'>
+        					<button class='btn btn-info' id='upload_logo_button' type='button'>Select</button>
+        				</span>
+        				<input id='text_string' name='jsm_custom_login_options[text_string]' type='text' value='" . esc_attr( $text_string ) . "' class='form-control' placeholder='Logo url here or click select' />
+        			</div>";
+        $content .= "<span class='description'>Upload or choose an image for the logo.</span>";
+	 	echo $content;
+	}
+
+	/**
+	 * Callback to collect the logo size and display it if it is set.
+	 * @return [type] [description]
+	 */
+	public function jsm_custom_login_logo_size() {
+		$options = get_option( 'jsm_custom_login_options' );
+		$logo_height = $this->jsm_custom_login_isset( $options, 'logo_height' );	
+	    $content = "<div class='input-group' style='width:40%;'><span class='input-group-addon'><i>Height</i></span><input id='logo_height' name='jsm_custom_login_options[logo_height]' type='text' value='" . esc_attr( $logo_height ) . "' class='form-control' /></div>";
+	    $content .= "<span class='description'>Example: 100px</span>";
+	    echo $content;
+	}
+
+	/**
+	 * Show the current logo for preview.  Displays the currently set logo.  
+	 * @return html 
+	 */
+	public function jsm_custom_login_setting_logo_preview() {
+		$options = get_option( 'jsm_custom_login_options' );
+		$text_string = $this->jsm_custom_login_isset( $options, 'text_string' );
+		?>
+		<div id="upload_logo_preview" style="min-height: 100px;">
+	    	<img style="max-width:100%;" src="<?php echo esc_attr( $text_string ); ?>" />
+		</div>
+		<?php
+	}
+
+	/**
+	 * Display and fill the form field for the logo link url.  This is the where the user is directed
+	 * when they click on the logo. This uses wp_kses() to sanitize the output.  
+	 * The value variable is run through the esc_attr() function as well.
+	 * @return html
+	 */
+	public function jsm_custom_login_setting_link_url() {
+		$options = get_option( 'jsm_custom_login_options' );
+		$text_string = $this->jsm_custom_login_isset( $options, 'link_url' );
+		$content = "<div class='input-group' style='width:40%;'><input id='link_url' name='jsm_custom_login_options[link_url]' type='text' value='" . esc_attr( $text_string ) . "' class='form-control' /></div>";
+		$content .= '<span class="description">http://example.com</span>';
+		$allowed = array(
+						'input' => array(
+							'id' => array(),
+							'name' => array(),
+							'type' => array(),
+							'value' => array(),
+							'style' => array(),
+							'class' => array(),
+						),
+						'span' => array(
+							'class' => array()
+						),
+						'br' => array(),
+						'div' => array(
+							'class' => array(),
+							 'style' => array()
+						),
+					);
+		echo wp_kses( $content, $allowed );
+	}
+
+	/**
+	 * Display and fill the form field for the Logo image title.  The 
+	 * value variable is escaped using esc_attr().
+	 * @return html
+	 */
+	public function jsm_custom_login_setting_hover_title() {
+		$options = get_option( 'jsm_custom_login_options' );
+		$text_string = $this->jsm_custom_login_isset( $options, 'hover_title' );
+		$output = "<div class='input-group' style='width:40%;'><input id='hover_title' name='jsm_custom_login_options[hover_title]' type='text' value='" . esc_attr( $text_string ) . "' class='form-control' /></div>";
+		echo $output;
+	}
+
+	/**
+	 * The entire page's background color. Page's Background Color. 
+	 * @return html
+	 */
+	public function jsm_custom_login_setting_bk_color() {
+		$options = get_option( 'jsm_custom_login_options' );
+		$text_string = $this->jsm_custom_login_isset( $options, 'bk_color' );
+		$output = "<div class='input-group color-picker' style='width:40%;'><input id='bk_color' name='jsm_custom_login_options[bk_color]' type='text' value='" . esc_attr( $text_string ). "' class='form-control' /><span class='input-group-addon'><i></i></span></div>";
+		$output .= "<span class='description'>6 digit hex color code</span>";
+		echo $output;
+	}
+
+	/**
+	 * Option for the background color of the large form. This is the big container
+	 * that contains all of the links and login fields.  Set to #fff as default in 
+	 * the css. 
+	 * @return html 
+	 */
+	public function jsm_custom_login_forms_background() {
+		$options = get_option( 'jsm_custom_login_options' );
+		$text_string = $this->jsm_custom_login_isset( $options, 'form_background' );
+		$output = "<div class='input-group color-picker' style='width:40%;'><input id='form_background' name='jsm_custom_login_options[form_background]' type='text' value='" . esc_attr( $text_string ). "' class='form-control' /><span class='input-group-addon'><i></i></span></div>";
+		$output .= "<span class='description'>6 digit hex color code</span>";
+		echo $output;
+	}
+
+	/**
+	 * Small form option for background color. This is the part of the
+	 * form that does not include the logo or the other links on the bottom.
+	 * This is the text fields container with class .login form.
+	 * @return html 
+	 */
+	public function jsm_custom_login_small_forms_background() {
+		$options = get_option( 'jsm_custom_login_options' );
+		$text_string = $this->jsm_custom_login_isset( $options, 'small_form_background' );
+		$output = "<div class='input-group color-picker' style='width:40%;'><input id='small_form_background' name='jsm_custom_login_options[small_form_background]' type='text' value='" . esc_attr( $text_string ). "' class='form-control' /><span class='input-group-addon'><i></i></span></div>";
+		$output .= "<span class='description'>6 digit hex color code</span>";
+		echo $output;
+	}
+
+	/**
+	 * Background image upload.
+	 * @return html
+	 */
+	public function jsm_custom_login_setting_bk_image() {
+		$options = get_option( 'jsm_custom_login_options' );
+		$text_string = $this->jsm_custom_login_isset( $options, 'bk_image' );
+		$this->jsm_custom_login_isset( $options, 'image_pos' );
+		$content = "<div class='input-group' style='width:40%;'>
+        				<span class='input-group-btn'>
+        					<button class='btn btn-info' id='upload_bk_image_button' type='button'>Select</button>
+        				</span>
+        				<input id='bk_image' name='jsm_custom_login_options[bk_image]' type='text' value='" . esc_attr( $text_string ) . "' class='form-control' placeholder='Image url here or click select.' />
+					</div>
+					<div name='jsm_custom_login_options[image_pos]' class='input-group' style='width:40%;'>	
+						<select class='form-control' id='image_pos' name='jsm_custom_login_options[image_pos]'>
+						  <option value='repeat' ";
+		$content .= ( $options['image_pos'] == 'repeat' ) ? 'selected' : '';
+		$content .= ">Repeat</option>
+						  <option value='center' ";
+		$content .= ( $options['image_pos'] == 'center' ) ? 'selected' : '';
+		$content .= ">Center</option>
+						</select>	
+        			</div>";
+	 	echo $content;
+	}
+
+	/**
+	 * Show the current background image.  Displays the currently chosen and saved background image.
+	 * @return html 
+	 */
+	public function jsm_custom_login_setting_bk_image_preview() {
+		$options = get_option( 'jsm_custom_login_options' );
+		$text_string = $this->jsm_custom_login_isset( $options, 'bk_image' );
+		?>
+		<div id="upload_bk_image_preview" style="min-height: 100px;">
+	    	<img style="max-width:100%;" src="<?php echo esc_url( $text_string ); ?>" />
+		</div>
+	<?php
+	}
+
+	/**
+	 * The Text Color Option
+	 * @return html
+	 */
+	public function jsm_custom_login_setting_text_color() {
+		$options = get_option( 'jsm_custom_login_options' );
+		$text_string = $this->jsm_custom_login_isset( $options, 'text_color' );
+		$output = "<div class='input-group color-picker' style='width:40%;'><input id='text_color' name='jsm_custom_login_options[text_color]' type='text' value='" . esc_attr( $text_string ). "' class='form-control' /><span class='input-group-addon'><i></i></span></div>";
+		$output .= "<span class='description'>6 digit hex color code</span>";
+		echo $output;
+	}
+
+	/**
+	 * Link text color. 
+	 * @return html
+	 */
+	public function jsm_custom_login_setting_link_text_color() {
+		$options = get_option( 'jsm_custom_login_options' );
+		$text_string = $this->jsm_custom_login_isset( $options, 'link_text_color' );
+		$output = "<div class='input-group color-picker' style='width:40%;'><input id='link_text_color' name='jsm_custom_login_options[link_text_color]' type='text' value='" . esc_attr( $text_string ). "' class='form-control' /><span class='input-group-addon'><i></i></span></div>";
+		$output .= "<span class='description'>6 digit hex color code</span>";
+		echo $output;
+	}
+
+	/**
+	 * Link text hover color. For the links to register and return to homepage.
+	 * @return html 
+	 */
+	public function jsm_custom_login_setting_link_text_hover_color() {
+		$options = get_option( 'jsm_custom_login_options' );
+		$text_string = $this->jsm_custom_login_isset( $options, 'link_text_hover_color' );
+		$output = "<div class='input-group color-picker' style='width:40%;'><input id='link_text_hover_color' name='jsm_custom_login_options[link_text_hover_color]' type='text' value='" . esc_attr( $text_string ). "' class='form-control' /><span class='input-group-addon'><i></i></span></div>";
+		$output .= "<br /><span class='description'>6 digit hex color code</span>";
+		echo $output;
 	}
 
 	/**
@@ -78,180 +284,6 @@ class Jsm_Custom_Login_Functions {
 						)
 					);
 		echo wp_kses( $content, $allowed );
-	}
-
-	/**
-	 * Display and fill the form field for the logo link url. This
-	 * uses wp_kses() to sanitize the output.  The value variable is run through
-	 * the esc_attr() function as well.
-	 * @return html
-	 */
-	public function jsm_custom_login_setting_link_url() {
-		$options = get_option( 'jsm_custom_login_options' );
-		$text_string = $this->jsm_custom_login_isset( $options, 'link_url' );
-		$content = "<input id='link_url' name='jsm_custom_login_options[link_url]' type='text' value='" . esc_attr( $text_string ) . "' style='width:40%;'>";
-		$content .= '<span class="description"><br />http://example.com</span>';
-		$allowed = array(
-						'input' => array(
-							'id' => array(),
-							'name' => array(),
-							'type' => array(),
-							'value' => array(),
-							'style' => array()
-						),
-						'span' => array(
-							'class' => array()
-						),
-						'br' => array()
-					);
-		echo wp_kses( $content, $allowed );
-	}
-
-	/**
-	 * Display and fill the form field for the hover logo title.  The 
-	 * value variable is escaped using esc_attr().
-	 * @return html
-	 */
-	public function jsm_custom_login_setting_hover_title() {
-		$options = get_option( 'jsm_custom_login_options' );
-		$text_string = $this->jsm_custom_login_isset( $options, 'hover_title' );
-		echo "<input id='hover_title' name='jsm_custom_login_options[hover_title]' type='text' value='" . esc_attr( $text_string ). "' style='width:40%;'>";
-	}
-
-	/**
-	 * Get the background color. 
-	 * @return html
-	 */
-	public function jsm_custom_login_setting_bk_color() {
-		$options = get_option( 'jsm_custom_login_options' );
-		$text_string = $this->jsm_custom_login_isset( $options, 'bk_color' );
-		$output = "<input id='bk_color' class='color' name='jsm_custom_login_options[bk_color]' type='text' value='" . esc_attr( $text_string ). "' style='width:40%;'>";
-		$output .= "<br /><span class='description'>6 digit hex color code</span>";
-		echo $output;
-	}
-
-	/**
-	 * The Text Color Option
-	 * @return html
-	 */
-	public function jsm_custom_login_setting_text_color() {
-		$options = get_option( 'jsm_custom_login_options' );
-		$text_string = $this->jsm_custom_login_isset( $options, 'text_color' );
-		$output = "<input id='text_color' class='color' name='jsm_custom_login_options[text_color]' type='text' value='" . esc_attr( $text_string ). "' style='width:40%;'>";
-		$output .= "<br /><span class='description'>6 digit hex color code</span>";
-		echo $output;
-	}
-
-	/**
-	 * Link text color. 
-	 * @return html
-	 */
-	public function jsm_custom_login_setting_link_text_color() {
-		$options = get_option( 'jsm_custom_login_options' );
-		$text_string = $this->jsm_custom_login_isset( $options, 'link_text_color' );
-		$output = "<input id='link_text_color' class='color' name='jsm_custom_login_options[link_text_color]' type='text' value='" . esc_attr( $text_string ). "' style='width:40%;'>";
-		$output .= "<br /><span class='description'>6 digit hex color code</span>";
-		echo $output;
-	}
-
-	/**
-	 * Link text hover color. For the links to register and return to homepage.
-	 * @return html 
-	 */
-	public function jsm_custom_login_setting_link_text_hover_color() {
-		$options = get_option( 'jsm_custom_login_options' );
-		$text_string = $this->jsm_custom_login_isset( $options, 'link_text_hover_color' );
-		$output = "<input id='link_text_hover_color' class='color' name='jsm_custom_login_options[link_text_hover_color]' type='text' value='" . esc_attr( $text_string ). "' style='width:40%;'>";
-		$output .= "<br /><span class='description'>6 digit hex color code</span>";
-		echo $output;
-	}
-
-	/**
-	 * Logo Upload
-	 * @return html
-	 */
-	public function jsm_custom_login_logo_upload(){
-		$options = get_option( 'jsm_custom_login_options' );
-		$text_string = $this->jsm_custom_login_isset( $options, 'text_string' );
-
-		?>
-	        <input type="text" id="text_string" name="jsm_custom_login_options[text_string]" value="<?php echo esc_attr( esc_url( $text_string ) ); ?>" />
-	        <input id="upload_logo_button" type="button" class="button" value="<?php echo 'Select Logo'; ?>" />
-	        <span class="description"><?php echo 'Upload an image for the logo.'; ?></span>
-	        <span class="description"><?php echo '<br />Image URL'; ?></span>
-	    <?php
-	}
-
-	/**
-	 * Callback to collect the logo size and display it if it is set.
-	 * @return [type] [description]
-	 */
-	public function jsm_custom_login_logo_size() {
-		$options = get_option( 'jsm_custom_login_options' );
-		$logo_height = $this->jsm_custom_login_isset( $options, 'logo_height' );
-		?>
-	        <span class="description">Height</span><input type="text" id="logo_height" name="jsm_custom_login_options[logo_height]" value="<?php echo esc_attr( $logo_height ); ?>" />
-	        <span class="description"><?php echo '<br />Example: 100px'; ?></span>
-	    <?php
-	}
-
-	/**
-	 * Show the current logo for preview.  
-	 * @return html 
-	 */
-	public function jsm_custom_login_setting_logo_preview() {
-		$options = get_option( 'jsm_custom_login_options' );
-		$text_string = $this->jsm_custom_login_isset( $options, 'text_string' );
-		?>
-		<div id="upload_logo_preview" style="min-height: 100px;">
-	    	<img style="max-width:100%;" src="<?php echo esc_attr( $text_string ); ?>" />
-		</div>
-		<?php
-	}
-
-	/**
-	 * Background image upload.
-	 * @return html
-	 */
-	public function jsm_custom_login_setting_bk_image() {
-		$options = get_option( 'jsm_custom_login_options' );
-		$text_string = $this->jsm_custom_login_isset( $options, 'bk_image' );
-		$this->jsm_custom_login_isset( $options, 'image_pos' );
-		?>
-			<input type="text" id="bk_image" name="jsm_custom_login_options[bk_image]" value="<?php echo esc_url( $text_string ); ?>" />
-			<select name="jsm_custom_login_options[image_pos]" id="image_pos" class="jsm_select">
-				<option value="center" <?php echo ( $options['image_pos'] == 'center' ) ? 'selected' : ''; ?>>Center</option>
-				<option value="repeat" <?php echo ( $options['image_pos'] == 'repeat' ) ? 'selected' : ''; ?>>Repeat</option>
-			</select>
-			<input id="upload_bk_image_button" type="button" class="button" value="<?php echo 'Select Image'; ?>" />
-			<span class="description"><?php echo '<br />Image URL'; ?></span>
-		<?php
-	}
-
-	/**
-	 * Show the current background image
-	 * @return html 
-	 */
-	public function jsm_custom_login_setting_bk_image_preview() {
-		$options = get_option( 'jsm_custom_login_options' );
-		$text_string = $this->jsm_custom_login_isset( $options, 'bk_image' );
-		?>
-		<div id="upload_bk_image_preview" style="min-height: 100px;">
-	    	<img style="max-width:100%;" src="<?php echo esc_url( $text_string ); ?>" />
-		</div>
-	<?php
-	}
-
-	/**
-	 * Option for the background color of the form.  Set it to #fff as default.
-	 * @return html 
-	 */
-	public function jsm_custom_login_forms_background() {
-		$options = get_option( 'jsm_custom_login_options' );
-		$text_string = $this->jsm_custom_login_isset( $options, 'form_background' );
-		$output = "<input id='form_background' class='color' name='jsm_custom_login_options[form_background]' type='text' value='" . esc_attr( $text_string ). "' style='width:40%;'>";
-		$output .= "<br /><span class='description'>6 digit hex color code</span>";
-		echo $output;
 	}
 
 	/**
@@ -326,6 +358,9 @@ class Jsm_Custom_Login_Functions {
 		// Form Background hex value.
 		$arg_array['form_background'] = $this->jsm_sanitize_hex_color( $input['form_background'] );
 
+		// Form Background hex value.
+		$arg_array['small_form_background'] = $this->jsm_sanitize_hex_color( $input['small_form_background'] );
+
 		// CSS test_area sanitization
 		$arg_array['text_area'] = wp_kses( $input['text_area'], $allowed );
 
@@ -376,6 +411,9 @@ class Jsm_Custom_Login_Functions {
 				case 'form_background':
 					$options[$key] = '';
 					break;
+				case 'small_form_background':
+					$options[$key] = '';
+					break;
 				case 'link_text_hover_color':
 					$options[$key] = '00a0d2';
 					break;
@@ -387,13 +425,11 @@ class Jsm_Custom_Login_Functions {
 	}
 
 	/**
-	 * Cleans color hex value. Removes all unwanted characters. And uses esc_html to make sure
-	 * the data is not harmful.
-	 * @param  [string] $string an option array element hex value
-	 * @return [string]         the sanitized hex value
+	 * Simple html sanitization for the hex value, could be rgba.
+	 * @param  string $string the color hex value, could be rgba
+	 * @return string         sanitized string value.
 	 */
 	private function jsm_sanitize_hex_color( $string ) {
-		$string = esc_html( substr( str_replace( '#', '', $string ), 0, 6 ) );
-		return $string;
+		return esc_html( $string );
 	}
 }
