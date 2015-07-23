@@ -91,9 +91,9 @@ if ( ! class_exists( 'JsmGenericClass' )  ) {
 			}
 
 			// For Font Awesome on Settings page
-			wp_register_style( 'jsm-font-awesome', 'http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' );
+			wp_register_style( 'jsm-font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' );
 			wp_register_style( 'jsm-main-css' , plugins_url( 'assets/css/jsm-main.css', __FILE__ ) );
-			wp_register_style( 'bootstrap-css' , 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css' );
+			wp_register_style( 'bootstrap-css' , plugins_url( 'assets/css/bootstrap.css', __FILE__ ) );
 			wp_register_style( 'bootstrap-color', plugins_url( 'assets/dist/css/bootstrap-colorpicker.css', __FILE__ ) );
 			if ( $settings_page_url == get_current_screen() -> id ) {
 				wp_enqueue_style( 'jsm-font-awesome' );
