@@ -29,7 +29,15 @@ Users can:
 </ul>
 
 == Installation ==
-
+Option 1 - <em>Recomended</em>
+<ul>
+	<li>Login as administrator on a Wordpress site</li>
+	<li>Navigate to the plugins page</li>
+	<li>Click Add plugin</li>
+	<li>Search for "L7 Login Customizer"</li>
+	<li>Install and activate the plugin</li>
+</ul>
+Option 2
 <ul>
 		<li>Download the latest ZIP Wordpress.org.</li>
 		<li>Login to your Wordpress installation as an administrator</li>
