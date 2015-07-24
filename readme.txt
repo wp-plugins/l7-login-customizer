@@ -67,7 +67,7 @@ Option 2
 
 == Changelog ==
 
-= 2.0.8=
+= 2.0.8 =
 <ul>
 <li>Most stable release</li>
 <li>Added Bootstrap Colorpicker!</li>
@@ -75,7 +75,7 @@ Option 2
 <li>File structure change</li>
 </ul>
 
-= 2.0.7=
+= 2.0.7 =
 <ul>
 <li>Preview bug fixed</li>
 </ul>
