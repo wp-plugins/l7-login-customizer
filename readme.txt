@@ -63,7 +63,7 @@ Option 2
 
 == Screenshots ==
 
-1. /assets/screenshot-1.png
+1. /assets/screenshot-3.png
 2. /assets/screenshot-2.png
 
 == Changelog ==
