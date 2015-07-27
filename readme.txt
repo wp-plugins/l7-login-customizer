@@ -32,6 +32,10 @@ Users can:
 <h4>Distance between bottom of logo and top of form</h4>
 <p>.login h1 a {<br />
 &nbsp;&nbsp;height: 150px !important;<br />
+}</p>
+<h4>Hide registration, forgot password links</h4>
+<p>.login #nav {<br />
+&nbsp;&nbsp;display:none;<br />
 }
 </p>
 </blockquote>
