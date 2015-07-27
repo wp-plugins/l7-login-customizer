@@ -50,8 +50,8 @@ Option 2
 	
 == Frequently Asked Questions ==
 
-<em>Q</em> - When I upload or select an image using the select field no logo or image appears in the settings.<br />
-<em>A</em> - When choosing or uploading an image you must make sure that the URL is in the "Link URL" field in the upload form.  This can be done by simply clicking on the "File URL" button. Once you see the image URL in this field you can select your image or logo.<br /><br />
+<h4>When I upload or select an image using the select field no logo or image appears in the settings.</h4>
+<p>When choosing or uploading an image you must make sure that the URL is in the "Link URL" field in the upload form.  This can be done by simply clicking on the "File URL" button. Once you see the image URL in this field you can select your image or logo.</p>
 <em>Q</em> - What size image is the best to upload as a logo?<br />
 <em>A</em> - Depending on the image it can vary but a square image fits bests without a lot of custom css. The height of the image is adjustable.
 <br />
