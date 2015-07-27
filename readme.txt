@@ -66,6 +66,8 @@ Option 2
 <p>Yes. This plugin currently is compatable with any plugin that changes the login url.</p>
 <h4>Is this plugin compatable with WP-Members?</h4>
 <p>This plugin is compatable with WP-Members although they have the option to use one of thier templates for login.  This will not customize that login page.</p>
+<h4>After viewing the preview several times I am no longer able to view the login page.</h4>
+<p>Due to the increase in brute force attacks on Wordpress sites, Some hosting providers have security measures in place that will not allow the loading of the login page a set number of times in a time period.  You will have to contact your hosting provider.</p>
 
 == Screenshots ==
 
