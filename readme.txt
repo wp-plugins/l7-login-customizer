@@ -57,10 +57,9 @@ Option 2
 <br />
 <br />
 <em>Q</em> - If I use a plugin that changes the URL of the login will this plugin still work?<br />
-<em>A</em> - Yes. This plugin currently is compatable with any plugin that changes the login url<br><br /><br />
+<em>A</em> - Yes. This plugin currently is compatable with any plugin that changes the login url<br /><br />
 <em>Q</em> - Is this plugin compatable with WP-Members?<br />
 <em>A</em> - This plugin is compatable with WP-Members although they have the option to use one of thier templates for login.  This will not customize that login page.<br />
-
 
 == Screenshots ==
 
