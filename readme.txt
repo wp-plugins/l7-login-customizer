@@ -54,7 +54,7 @@ Option 2
 <p>When choosing or uploading an image you must make sure that the URL is in the "Link URL" field in the upload form.  This can be done by simply clicking on the "File URL" button. Once you see the image URL in this field you can select your image.</p>
 <img src="assets/image-upload.png">
 <h4>What size image is the best to upload as a logo?</h4>
-<p>Depending on the image it can vary but a square image fits bests without a lot of custom css. The height of the image is adjustable.</p>
+<p>Depending on the image it can vary but a square image fits best without adding custom css. The height of the image is adjustable.</p>
 <h4>If I use a plugin that changes the URL of the login will this plugin still work?</h4>
 <p>Yes. This plugin currently is compatable with any plugin that changes the login url.</p>
 <h4>Is this plugin compatable with WP-Members?</h4>
