@@ -61,7 +61,6 @@ Option 2
 
 <h4>When I select an image, no image appears in the settings.</h4>
 <p>When choosing or uploading an image you must make sure that the URL is in the "Link URL" field in the upload form.  This can be done by simply clicking on the "File URL" button. Once you see the image URL in this field you can select your image.</p>
-<img src="assets/image-upload.png">
 <h4>What size image is the best to upload as a logo?</h4>
 <p>Depending on the image it can vary but a square image fits best without adding custom css. The height of the image is adjustable.</p>
 <h4>If I use a plugin that changes the URL of the login will this plugin still work?</h4>
