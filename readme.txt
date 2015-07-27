@@ -27,9 +27,8 @@ Users can:
 	<li>Preview</li>
 	<li>Add Custom CSS</li>
 </ul>
-
+<h4>Usefull custom CSS</h4>
 <blockquote>
-<h2>Usefull Custom CSS</h2>
 <h4>Distance between bottom of logo and top of form</h4>
 <p>.login h1 a {<br />
 &nbsp;&nbsp;height: 150px !important;<br />
