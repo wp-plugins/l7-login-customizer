@@ -50,16 +50,14 @@ Option 2
 	
 == Frequently Asked Questions ==
 
-<h4>When I upload or select an image using the select field no logo or image appears in the settings.</h4>
-<p>When choosing or uploading an image you must make sure that the URL is in the "Link URL" field in the upload form.  This can be done by simply clicking on the "File URL" button. Once you see the image URL in this field you can select your image or logo.</p>
-<em>Q</em> - What size image is the best to upload as a logo?<br />
-<em>A</em> - Depending on the image it can vary but a square image fits bests without a lot of custom css. The height of the image is adjustable.
-<br />
-<br />
-<em>Q</em> - If I use a plugin that changes the URL of the login will this plugin still work?<br />
-<em>A</em> - Yes. This plugin currently is compatable with any plugin that changes the login url.<br /><br />
-<em>Q</em> - Is this plugin compatable with WP-Members?<br />
-<em>A</em> - This plugin is compatable with WP-Members although they have the option to use one of thier templates for login.  This will not customize that login page.<br />
+<h4>When I select an image, no image appears in the settings.</h4>
+<p>When choosing or uploading an image you must make sure that the URL is in the "Link URL" field in the upload form.  This can be done by simply clicking on the "File URL" button. Once you see the image URL in this field you can select your image.</p>
+<h4>What size image is the best to upload as a logo?</h4>
+<p>Depending on the image it can vary but a square image fits bests without a lot of custom css. The height of the image is adjustable.</p>
+<h4>If I use a plugin that changes the URL of the login will this plugin still work?</h4>
+<p>Yes. This plugin currently is compatable with any plugin that changes the login url.</p>
+<h4>Is this plugin compatable with WP-Members?</h4>
+<p>This plugin is compatable with WP-Members although they have the option to use one of thier templates for login.  This will not customize that login page.</p>
 
 == Screenshots ==
 
