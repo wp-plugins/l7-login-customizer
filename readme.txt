@@ -29,9 +29,9 @@ Users can:
 </ul>
 
 <blockquote>
-<h4>Usefull css classes for customization</h4>
+<h4>Distance between bottom of logo and top of form</h4>
 <p>.login h1 a {
-	height: 150px;
+	height: 150px !important;;
     }
 </p>
 </blockquote>
