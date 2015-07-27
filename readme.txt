@@ -3,7 +3,7 @@ Contributors: jeffreysmattson
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=J25EL9NHCB7XL
 Tags: branding, custom login, login background, login logo, screen, style login, theme login, wp-login, css, change, custom, login, customize, register, logout, style, logo
 Requires at least: 3.0.1
-Tested up to: 4.2.2
+Tested up to: 4.2.3
 Stable tag:2.0.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -57,7 +57,7 @@ Option 2
 <br />
 <br />
 <em>Q</em> - If I use a plugin that changes the URL of the login will this plugin still work?<br />
-<em>A</em> - Yes. This plugin currently is compatable with any plugin that changes the login url<br /><br />
+<em>A</em> - Yes. This plugin currently is compatable with any plugin that changes the login url.<br /><br />
 <em>Q</em> - Is this plugin compatable with WP-Members?<br />
 <em>A</em> - This plugin is compatable with WP-Members although they have the option to use one of thier templates for login.  This will not customize that login page.<br />
 
