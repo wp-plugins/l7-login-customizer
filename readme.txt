@@ -3,8 +3,8 @@ Contributors: jeffreysmattson
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=J25EL9NHCB7XL
 Tags: branding, custom login, login background, login logo, screen, style login, theme login, wp-login, css, change, custom, login, customize, register, logout, style, logo
 Requires at least: 3.0.1
-Tested up to: 4.2.2
-Stable tag:2.0.8
+Tested up to: 4.2.3
+Stable tag:2.0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,6 +27,18 @@ Users can:
 	<li>Preview</li>
 	<li>Add Custom CSS</li>
 </ul>
+<h4>Usefull CSS</h4>
+<blockquote>
+<h4>Distance between bottom of logo and top of form</h4>
+<p>.login h1 a {<br />
+&nbsp;&nbsp;height: 150px !important;<br />
+}</p>
+<h4>Hide registration, forgot password links</h4>
+<p>.login #nav {<br />
+&nbsp;&nbsp;display:none;<br />
+}
+</p>
+</blockquote>
 
 == Installation ==
 
@@ -50,15 +62,16 @@ Option 2
 	
 == Frequently Asked Questions ==
 
-<em>Q</em> - What size image is the best to upload as a logo?<br />
-<em>A</em> - Depending on the image it can vary but a square image fits bests without a lot of custom css. The height of the image is adjustable.
-<br />
-<br />
-<em>Q</em> - If I use a plugin that changes the URL of the login will this plugin still work?<br />
-<em>A</em> - Yes. This plugin currently is compatable with any plugin that changes the login url<br><br />
-<em>Q</em> - Is this plugin compatable with WP-Members?<br />
-<em>A</em> - This plugin is compatable with WP-Members although they have the option to use one of thier templates for login.  This will not customize that login page.<br />
-
+<h4>When I select an image, no image appears in the settings.</h4>
+<p>When choosing or uploading an image you must make sure that the URL is in the "Link URL" field in the upload form.  This can be done by simply clicking on the "File URL" button. Once you see the image URL in this field you can select your image.</p>
+<h4>What size image is the best to upload as a logo?</h4>
+<p>Depending on the image it can vary but a square image fits best without adding custom css. The height of the image is adjustable.</p>
+<h4>If I use a plugin that changes the URL of the login will this plugin still work?</h4>
+<p>Yes. This plugin currently is compatable with any plugin that changes the login url.</p>
+<h4>Is this plugin compatable with WP-Members?</h4>
+<p>This plugin is compatable with WP-Members although they have the option to use one of thier templates for login.  This will not customize that login page.</p>
+<h4>After viewing the preview several times I am no longer able to view the login page. A notice is shown saying my ip has been banned and I am no loger able to view the login page.</h4>
+<p>Due to the increase in brute force attacks on Wordpress sites, Some hosting providers have security measures in place that will not allow the loading of the login page a set number of times in a time period.  You will have to contact your hosting provider to have this changed. Usually you are only banned for a few minuets.</p>
 
 == Screenshots ==
 
@@ -67,7 +80,14 @@ Option 2
 
 == Changelog ==
 
-= 2.0.8=
+= 2.0.9 =
+<ul>
+<li>Most stable release</li>
+<li>Grouped Setting Options</li>
+<li>Moved Color Picker from right to left</li>
+</ul>
+
+= 2.0.8 =
 <ul>
 <li>Most stable release</li>
 <li>Added Bootstrap Colorpicker!</li>
@@ -75,7 +95,7 @@ Option 2
 <li>File structure change</li>
 </ul>
 
-= 2.0.7=
+= 2.0.7 =
 <ul>
 <li>Preview bug fixed</li>
 </ul>
