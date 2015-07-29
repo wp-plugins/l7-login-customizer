@@ -18,10 +18,12 @@ Users can:
 <ul>
 	<li>Add Custom Logo to Login Form</li>
 	<li>Add Background Image</li>
-	<li>Set Logo Height and Width</li>
+	<li>Background Image Repeat or Centered</li>
+	<li>Set Logo Height</li>
 	<li>Set Image Link</li>
 	<li>Set Image Title</li>
 	<li>Set Background Color</li>
+	<li>Set Form Background Color</li>
 	<li>Set Text Color</li>
 	<li>Set Link Color</li>
 	<li>Preview</li>
