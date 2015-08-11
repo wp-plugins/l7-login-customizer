@@ -90,14 +90,12 @@ Option 2
 
 = 2.0.9 =
 <ul>
-<li>Most stable release</li>
 <li>Grouped Setting Options</li>
 <li>Moved Color Picker from right to left</li>
 </ul>
 
 = 2.0.8 =
 <ul>
-<li>Most stable release</li>
 <li>Added Bootstrap Colorpicker!</li>
 <li>Added small form area setting</li>
 <li>File structure change</li>
