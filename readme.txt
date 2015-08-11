@@ -1,14 +1,14 @@
 === L7 Login Customizer ===
 Contributors: jeffreysmattson
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=J25EL9NHCB7XL
-Tags: branding, custom, login, background, login logo, screen, style login, theme login, wp-login, css, change, custom, login, customize, register, logout, style, logo
+Tags: stylize, branding, custom, login, background, login logo, screen, style,login, theme login, wp-login, css, change, custom, login, customize, register, logout, style, logo
 Requires at least: 3.0.1
 Tested up to: 4.2.4
 Stable tag:2.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Customize the login, custom logout, and register pages. Add a custom logo and background image easily.
+Add Custom Style to the Login Page, Add Logo to Login Page. Customize the Login.
 
 == Description ==
 
