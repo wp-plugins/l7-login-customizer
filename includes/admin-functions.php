@@ -29,11 +29,11 @@ class Jsm_Custom_Login_Functions {
 
 		// Logo Settings
 		add_settings_section( 'jsm_custom_login_logo', 'Logo Settings', array( $this, 'jsm_custom_login_section_logo' ), 'logo-settings-customizer' );
-		add_settings_field( 'l7wc_logo_upload_url',  '<i class="fa fa-upload"></i> Logo Upload', array( $this, 'jsm_custom_login_logo_upload' ), 'logo-settings-customizer', 'jsm_custom_login_logo', array( 'label_for' => 'l7wc_logo_upload_url' ) );
-		add_settings_field( 'l7wc_logo_size',  '<i class="fa fa-arrows-alt"></i> Set Logo Size', array( $this, 'jsm_custom_login_logo_size' ), 'logo-settings-customizer', 'jsm_custom_login_logo', array( 'label_for' => 'l7wc_logo_size' ) );
-		add_settings_field( 'l7wc_preview', '<i class="fa fa-picture-o"></i> Logo Preview', array( $this, 'jsm_custom_login_setting_logo_preview' ), 'logo-settings-customizer', 'jsm_custom_login_logo' );
-		add_settings_field( 'l7wc_link_url', '<i class="fa fa-link"></i> Logo Link URL', array( $this, 'jsm_custom_login_setting_link_url' ) , 'logo-settings-customizer', 'jsm_custom_login_logo', array( 'label_for' => 'l7wc_link_url' ) );
-		add_settings_field( 'l7wc_hover_title', '<i class="fa fa-globe"></i> Logo Image Title', array( $this, 'jsm_custom_login_setting_hover_title' ) , 'logo-settings-customizer', 'jsm_custom_login_logo', array( 'label_for' => 'l7wc_hover_title' ) );
+		add_settings_field( 'jsm_custom_logo_text_string',  '<i class="fa fa-upload"></i> Logo Upload', array( $this, 'jsm_custom_login_logo_upload' ), 'logo-settings-customizer', 'jsm_custom_login_logo', array( 'label_for' => 'text_string' ) );
+		add_settings_field( 'jsm_custom_logo_size',  '<i class="fa fa-arrows-alt"></i> Set Logo Size', array( $this, 'jsm_custom_login_logo_size' ), 'logo-settings-customizer', 'jsm_custom_login_logo', array( 'label_for' => 'logo_height' ) );
+		add_settings_field( 'jsm_custom_login_logo_preview', '<i class="fa fa-picture-o"></i> Logo Preview', array( $this, 'jsm_custom_login_setting_logo_preview' ), 'logo-settings-customizer', 'jsm_custom_login_logo' );
+		add_settings_field( 'jsm_custom_login_logo_link_url', '<i class="fa fa-link"></i> Logo Link URL', array( $this, 'jsm_custom_login_setting_link_url' ) , 'logo-settings-customizer', 'jsm_custom_login_logo', array( 'label_for' => 'link_url' ) );
+		add_settings_field( 'jsm_custom_login_logo_hover_title', '<i class="fa fa-globe"></i> Logo Image Title', array( $this, 'jsm_custom_login_setting_hover_title' ) , 'logo-settings-customizer', 'jsm_custom_login_logo', array( 'label_for' => 'hover_title' ) );
 		add_settings_field( 'l7wc_top_form_space', '<i class="fa fa-paint-brush"></i> Space to Top of Form', array( $this, 'jsm_custom_login_setting_logo_top_form' ), 'logo-settings-customizer', 'jsm_custom_login_logo', array( 'label_for' => 'l7wc_top_form_space' ) );
 
 		// Page Settings
@@ -104,12 +104,12 @@ class Jsm_Custom_Login_Functions {
 	 */
 	public function jsm_custom_login_logo_upload(){
 		$options = get_option( 'jsm_custom_login_options' );
-		$text_string = $this->jsm_custom_login_isset( $options, 'l7wc_logo_upload_url' );
+		$text_string = $this->jsm_custom_login_isset( $options, 'text_string' );
 		$content = "<div class='input-group'>
         				<span class='input-group-btn'>
         					<button class='btn btn-info' id='upload_logo_button' type='button'>Select</button>
         				</span>
-        				<input id='l7wc_logo_upload_url' name='jsm_custom_login_options[l7wc_logo_upload_url]' type='text' value='" . esc_attr( $text_string ) . "' class='form-control' placeholder='Logo url here or click select' style='width:150%;'/>
+        				<input id='text_string' name='jsm_custom_login_options[text_string]' type='text' value='" . esc_attr( $text_string ) . "' class='form-control' placeholder='Logo url here or click select' style='width:150%;'/>
         			</div>";
 		$content .= "<span class='description'>Upload or choose an image for the logo.</span>";
 		echo $content;
@@ -121,8 +121,8 @@ class Jsm_Custom_Login_Functions {
 	 */
 	public function jsm_custom_login_logo_size() {
 		$options = get_option( 'jsm_custom_login_options' );
-		$logo_size = $this->jsm_custom_login_isset( $options, 'l7wc_logo_size' );
-		$content = "<div class='input-group'><span class='input-group-addon'><i>Height</i></span><input id='l7wc_logo_size' name='jsm_custom_login_options[l7wc_logo_size]' type='text' value='" . esc_attr( $logo_size ) . "' class='form-control' /></div>";
+		$logo_size = $this->jsm_custom_login_isset( $options, 'logo_height' );
+		$content = "<div class='input-group'><span class='input-group-addon'><i>Height</i></span><input id='logo_height' name='jsm_custom_login_options[logo_height]' type='text' value='" . esc_attr( $logo_size ) . "' class='form-control' /></div>";
 		$content .= "<span class='description'>Example: 100px</span>";
 		echo $content;
 	}
@@ -133,7 +133,7 @@ class Jsm_Custom_Login_Functions {
 	 */
 	public function jsm_custom_login_setting_logo_preview() {
 		$options = get_option( 'jsm_custom_login_options' );
-		$text_string = $this->jsm_custom_login_isset( $options, 'l7wc_logo_upload_url' );
+		$text_string = $this->jsm_custom_login_isset( $options, 'text_string' );
 		$content = "<div id='upload_logo_preview' style='min-height: 100px;'>
 	    	<img style='max-width:100%;' src='" . esc_attr( $text_string ) . "' />
 		</div>";
@@ -148,8 +148,8 @@ class Jsm_Custom_Login_Functions {
 	 */
 	public function jsm_custom_login_setting_link_url() {
 		$options = get_option( 'jsm_custom_login_options' );
-		$text_string = $this->jsm_custom_login_isset( $options, 'l7wc_link_url' );
-		$content = "<div class='input-group'><span class='input-group-addon'><i></i></span><input id='l7wc_link_url' name='jsm_custom_login_options[l7wc_link_url]' type='text' value='" . esc_attr( $text_string ) . "' class='form-control' style='width:150%;' /></div>";
+		$text_string = $this->jsm_custom_login_isset( $options, 'link_url' );
+		$content = "<div class='input-group'><span class='input-group-addon'><i></i></span><input id='link_url' name='jsm_custom_login_options[link_url]' type='text' value='" . esc_attr( $text_string ) . "' class='form-control' style='width:150%;' /></div>";
 		$content .= '<span class="description">http://example.com</span>';
 		echo $content;
 	}
@@ -161,8 +161,8 @@ class Jsm_Custom_Login_Functions {
 	 */
 	public function jsm_custom_login_setting_hover_title() {
 		$options = get_option( 'jsm_custom_login_options' );
-		$text_string = $this->jsm_custom_login_isset( $options, 'l7wc_hover_title' );
-		$output = "<div class='input-group'><span class='input-group-addon'><i></i></span><input id='l7wc_hover_title' name='jsm_custom_login_options[l7wc_hover_title]' type='text' value='" . esc_attr( $text_string ) . "' class='form-control' style='width:150%;'/></div>";
+		$text_string = $this->jsm_custom_login_isset( $options, 'hover_title' );
+		$output = "<div class='input-group'><span class='input-group-addon'><i></i></span><input id='hover_title' name='jsm_custom_login_options[hover_title]' type='text' value='" . esc_attr( $text_string ) . "' class='form-control' style='width:150%;'/></div>";
 		echo $output;
 	}
 
@@ -239,9 +239,9 @@ class Jsm_Custom_Login_Functions {
 		$content .= ">Repeat</option>
 						  <option value='center' ";
 		$content .= ( $options['image_pos'] == 'center' ) ? 'selected' : '';
-		$content .= ">Center</option>
+		$content .= '>Center</option>
 						</select>	
-        			</div>";
+        			</div>';
 	 	echo $content;
 	}
 
@@ -357,7 +357,7 @@ class Jsm_Custom_Login_Functions {
 		$arg_array = get_option( 'jsm_custom_login_options' );
 
 		// For size of the Logo
-		$arg_array['l7wc_logo_size'] = esc_html( $input['l7wc_logo_size'] );
+		$arg_array['logo_height'] = esc_html( $input['logo_height'] );
 
 		// Space between logo and top of form setting
 		$arg_array['l7wc_top_form_space'] = esc_html( $input['l7wc_top_form_space'] );
@@ -366,19 +366,19 @@ class Jsm_Custom_Login_Functions {
 		$arg_array['bk_color'] = $this->jsm_sanitize_hex_color( $input['bk_color'] );
 
 		// Logo upload URL
-		$arg_array['l7wc_logo_upload_url'] = $input['l7wc_logo_upload_url'];
-		if ( ( ! preg_match( "/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i", $arg_array['l7wc_logo_upload_url'] ) ) && ( $arg_array['l7wc_logo_upload_url'] != '' ) ) {
+		$arg_array['text_string'] = $input['text_string'];
+		if ( ( ! preg_match( "/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i", $arg_array['text_string'] ) ) && ( $arg_array['text_string'] != '' ) ) {
   			add_settings_error( 'jsm_custom_login_options', 'invalid-url-logo', 'You have entered an invalid logo URL.' );
 		}
 
 		// Link url
-		$arg_array['l7wc_link_url'] = esc_url_raw( $input['l7wc_link_url'] );
+		$arg_array['link_url'] = esc_url_raw( $input['link_url'] );
 		if ( ( ! preg_match( "/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i", $arg_array['link_url'] ) ) && ( $arg_array['link_url'] != '' ) ) {
   			add_settings_error( 'jsm_custom_login_options', 'invalid-url-link', 'You have entered an invalid link URL.' );
 		}
 
 		// Text for the title
-		$arg_array['l7wc_hover_title'] = esc_html( $input['l7wc_hover_title'] );
+		$arg_array['hover_title'] = esc_html( $input['hover_title'] );
 
 		// Background image URL
 		$arg_array['bk_image'] = esc_url_raw( $input['bk_image'] );
@@ -428,13 +428,13 @@ class Jsm_Custom_Login_Functions {
 		else {
 			// Add default settings here
 			switch ($key) {
-				case 'l7wc_logo_upload':
+				case 'text_string':
 					$options[$key] = '';
 					break;
 				case 'link_text_color':
 					$options[$key] = '';
 					break;
-				case 'l7wc_link_url':
+				case 'link_url':
 					$options[$key] = '';
 					break;
 				case 'hover_title':
@@ -443,7 +443,7 @@ class Jsm_Custom_Login_Functions {
 				case 'text_color':
 					$options[$key] = '';
 					break;
-				case 'l7wc_logo_height':
+				case 'logo_height':
 					$options[$key] = '100px';
 					break;
 				case 'form_background':

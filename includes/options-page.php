@@ -52,7 +52,9 @@ class Jsm_Settings_Display {
 						<a name="Preview of custom login. Saved changes are shown here." href="#TB_inline?width=700&height=700&inlineId=jsm_custom_login_display" class="thickbox"><button class="button button-secondary">Preview</button></a>
 					</form>
 				</div>
-				<div class="col-md-4">
+			</div>
+			<div class="row">
+			 	<div class="col-md-12" style="text-align:center;">
 				 Comments? - <a href="mail:jeff@fusioncode.org">Layer 7 Web</a>
 				</div>
 			</div>
