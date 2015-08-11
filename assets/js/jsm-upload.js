@@ -39,7 +39,7 @@ jQuery(document).ready(function($) {
     window.send_to_editor = function(html) {
         if (whichMedia == 0){
     	    var image_url = $('img', html).attr('src');
-    	    $('#l7wc_logo_upload_url').val(image_url);
+    	    $('#text_string').val(image_url);
     	    tb_remove();
     	    $('#upload_logo_preview img').attr('src',image_url);
         	$('input[type="submit"]').trigger('click');
