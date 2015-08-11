@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: branding, custom, login, background, login logo, screen, style login, theme login, wp-login, css, change, custom, login, customize, register, logout, style, logo
 Requires at least: 3.0.1
 Tested up to: 4.2.4
-Stable tag:2.1.0
+Stable tag:2.0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
