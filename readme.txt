@@ -1,14 +1,14 @@
 === L7 Login Customizer ===
 Contributors: jeffreysmattson
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=J25EL9NHCB7XL
-Tags: branding, custom login, login background, login logo, screen, style login, theme login, wp-login, css, change, custom, login, customize, register, logout, style, logo
+Tags: branding, custom, login, background, login logo, screen, style login, theme login, wp-login, css, change, custom, login, customize, register, logout, style, logo
 Requires at least: 3.0.1
-Tested up to: 4.2.3
-Stable tag:2.0.9
+Tested up to: 4.2.4
+Stable tag:2.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Customize the login, logout, and register pages. Add a custom logo and background image easily.
+Customize the login, custom logout, and register pages. Add a custom logo and background image easily.
 
 == Description ==
 
@@ -18,10 +18,12 @@ Users can:
 <ul>
 	<li>Add Custom Logo to Login Form</li>
 	<li>Add Background Image</li>
-	<li>Set Logo Height and Width</li>
+	<li>Background Image Repeat or Centered</li>
+	<li>Set Logo Height</li>
 	<li>Set Image Link</li>
 	<li>Set Image Title</li>
 	<li>Set Background Color</li>
+	<li>Set Form Background Color</li>
 	<li>Set Text Color</li>
 	<li>Set Link Color</li>
 	<li>Preview</li>
@@ -29,10 +31,7 @@ Users can:
 </ul>
 <h4>Usefull CSS</h4>
 <blockquote>
-<h4>Distance between bottom of logo and top of form</h4>
-<p>.login h1 a {<br />
-&nbsp;&nbsp;height: 150px !important;<br />
-}</p>
+<em>Soon to be a setting</em>
 <h4>Hide registration, forgot password links</h4>
 <p>.login #nav {<br />
 &nbsp;&nbsp;display:none;<br />
@@ -79,6 +78,15 @@ Option 2
 2. /assets/screenshot-2.png
 
 == Changelog ==
+
+= 2.1.0 =
+<ul>
+<li>Most stable release</li>
+<li>Added space between logo and top of form adjustment.</li>
+<li>Fixed conflict with l7 Help Video Plugin</li>
+<li>Fixed logo link bug</li>
+<li>Fixed logo title bug</li>
+</ul>
 
 = 2.0.9 =
 <ul>

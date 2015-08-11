@@ -3,7 +3,7 @@
  * Plugin Name: l7 Login Customizer
  * Plugin URI: layer7web.com
  * Description: For customizing the login, logout, and register pages. Add a custom logo and background image easily. 
- * Version: 2.0.8
+ * Version: 2.1.0
  * Author: Jeff Mattson
  * Author URI: https://github.com/jeffreysmattson
  * License: GPLv2 or later
@@ -44,12 +44,30 @@ if ( ! class_exists( 'JsmGenericClass' )  ) {
 		 */
 		public function __construct() {
 			add_action( 'login_head', array( $this, 'jsm_my_login_head' ) );
-			add_filter( 'login_headerurl', array( $this, 'jsm_my_login_logo_url' ), 15 );
-			add_filter( 'login_headertitle', array( $this, 'my_login_logo_url_title' ), 15 );
-			add_action( 'admin_enqueue_scripts', array( $this, 'jsm_custom_login_options_enqueue_scripts' ) );
+			add_filter( 'login_headerurl', array( $this, 'l7wc_logo_link_change' ), 15 );
+			add_filter( 'login_headertitle', array( $this, 'l7wc_logo_title' ), 15 );
+			add_action( 'admin_enqueue_scripts', array( $this, 'jsm_custom_login_options_enqueue_scripts' ), 15 );
 
 			$plugin = plugin_basename( __FILE__ );
 			add_filter( "plugin_action_links_$plugin", array( $this, 'jsm_custom_login_settings_link') );
+		}
+
+		/**
+		 * Changes the link of the logo.  
+		 * @return string 
+		 */
+		public function l7wc_logo_link_change(){
+			$options = get_option( 'jsm_custom_login_options' );
+			return $options['l7wc_link_url'];
+		}
+
+		/**
+		 * Changes the hover title.
+		 * @return string 
+		 */
+		public function l7wc_logo_title(){
+			$options = get_option( 'jsm_custom_login_options' );
+			return $options['l7wc_hover_title'];
 		}
 
 		/**
@@ -75,22 +93,16 @@ if ( ! class_exists( 'JsmGenericClass' )  ) {
 			$url = explode( '/', plugin_basename( __FILE__ ) );
 			$plugin_name = $url[0];
 			$settings_page_url = 'settings_page_' . $plugin_name . '/includes/options-page';
-			wp_register_script( 'jsm-upload', plugins_url( 'assets/js/jsm-upload.js', __FILE__ ), array('jquery', 'media-upload', 'thickbox') );
-			wp_register_script( 'jsm-color', plugins_url( 'assets/js/color/jscolor.js', __FILE__ ), array('jquery') );
-			wp_register_script( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js', array('jquery') );
-			wp_register_script( 'bootstrap-color', plugins_url( 'assets/dist/js/bootstrap-colorpicker.js', __FILE__ ), array('jquery') );
+			wp_register_script( 'l7wc-upload', plugins_url( 'assets/js/jsm-upload.js', __FILE__ ), array('jquery', 'media-upload', 'thickbox') );
+			wp_register_script( 'l7wc-bootstrap', plugins_url( 'assets/js/bootstrap.min.js', __FILE__ ), array('jquery') );
+			wp_register_script( 'l7wc-bootstrap-color', plugins_url( 'assets/dist/js/bootstrap-colorpicker.js', __FILE__ ), array('jquery') );
 			if ( $settings_page_url == get_current_screen() -> id ) {
-				wp_enqueue_script( 'jquery' );
-				wp_enqueue_script( 'thickbox' );
-				wp_enqueue_style( 'thickbox' );
-				wp_enqueue_script( 'media-upload' );
-				wp_enqueue_script( 'jsm-upload' );
-				wp_enqueue_script( 'jsm-color' );
-				wp_enqueue_script( 'bootstrap' );
-				wp_enqueue_script( 'bootstrap-color' );
+				wp_enqueue_script( 'l7wc-upload' );
+				wp_enqueue_script( 'l7wc-bootstrap' );
+				wp_enqueue_script( 'l7wc-bootstrap-color' );
 			}
 
-			// For Font Awesome on Settings page
+			// For Font Awesome, Bootstrap on Settings page
 			wp_register_style( 'jsm-font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' );
 			wp_register_style( 'jsm-main-css' , plugins_url( 'assets/css/jsm-main.css', __FILE__ ) );
 			wp_register_style( 'bootstrap-css' , plugins_url( 'assets/css/bootstrap.css', __FILE__ ) );
@@ -115,20 +127,20 @@ if ( ! class_exists( 'JsmGenericClass' )  ) {
 			 * If there is not background image url selected (on install) then don't write anything into the css.
 			 * This way the standard wp logo will show on install
 			 */
-			if ( $options['text_string'] != '' ){
+			if ( $options['l7wc_logo_upload_url'] != '' ){
 
 				// CSS values for the logo image
-				$login_logo_image_css_values = 'background-image: url(' . $options['text_string'] . ');';
+				$login_logo_image_css_values = 'background-image: url(' . $options['l7wc_logo_upload_url'] . ');';
 			}
 			else {
 				$login_logo_image_css_values = '';
 			}
 
 			// Size for logo image
-			$login_logo_image_css_values .= 'background-size:' . $options['logo_height'] . ';';
+			$login_logo_image_css_values .= 'background-size:' . $options['l7wc_logo_size'] . ';';
 
 			// Logo image container
-			$login_logo_image_container_css_values = 'height:' . $options['logo_height'] . ' !important;';
+			$login_logo_image_container_css_values = 'height:' . $options['l7wc_top_form_space'] . ' !important;';
 			$login_logo_image_container_css_values .= 'width:inherit;';
 
 			// Login form background
@@ -196,8 +208,8 @@ if ( ! class_exists( 'JsmGenericClass' )  ) {
 			 * This is the form that is on top of the larger id of #login.  When the color of
 			 * the #login is chosen the these should be set to transparent.
 			 */
-			if( '' == $options['form_background'] ){
-			
+			if ( '' == $options['form_background'] ){
+
 				// Small Login Form Background set to white large set to transparent
 				$css_content['login_form'] = '#login {background:transparent;}';
 				$css_content['small_login_form'] = '.login form {background:#fff;}';
@@ -227,31 +239,7 @@ if ( ! class_exists( 'JsmGenericClass' )  ) {
 			<?php
 			$content .= ob_get_contents();
 			ob_end_clean();
-
-			$allowed = array(
-						'style' => array(),
-						);
-			echo wp_kses( $content, $allowed );
-		}
-
-		/**
-		 * The link address of the logo
-		 * @return [string]
-		 */
-		public function jsm_my_login_logo_url() {
-			$options = get_option( 'jsm_custom_login_options' );
-			$text_string = $options['link_url'];
-			return $text_string;
-		}
-
-		/**
-		 * The title of the image
-		 * @return [string]
-		 */
-		public function my_login_logo_url_title() {
-			$options = get_option( 'jsm_custom_login_options' );
-			$text_string = $options['hover_title'];
-			return $text_string;
+			echo $content;
 		}
 	}
 }

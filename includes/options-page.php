@@ -38,14 +38,24 @@ class Jsm_Settings_Display {
 		ob_start();
 		?>
 		<div class="wrap">
-			<form action="options.php" method="post">
-			<?php
-				settings_fields( 'jsm_custom_login_options' );
-				do_settings_sections( 'simple-login-customizer' );
-			?>
-				<input name="Submit" class="button button-primary" type="submit" value="Save Changes" />
-				<a name="Preview of custom login. Saved changes are shown here." href="#TB_inline?width=700&height=700&inlineId=jsm_custom_login_display" class="thickbox"><button class="button button-secondary">Preview</button></a>
-			</form> 
+			<div class="row">
+				<div class="col-md-8">
+					<form action="options.php" method="post" >
+					<?php
+						settings_fields( 'jsm_custom_login_options' );
+						do_settings_sections( 'logo-settings-customizer' );
+						do_settings_sections( 'simple-login-customizer' );
+						do_settings_sections( 'text-settings-customizer' );
+						do_settings_sections( 'css-settings-customizer' );
+					?>
+						<input name="Submit" class="button button-primary" type="submit" value="Save Changes" />
+						<a name="Preview of custom login. Saved changes are shown here." href="#TB_inline?width=700&height=700&inlineId=jsm_custom_login_display" class="thickbox"><button class="button button-secondary">Preview</button></a>
+					</form>
+				</div>
+				<div class="col-md-4">
+				 Comments? - <a href="mail:jeff@fusioncode.org">Layer 7 Web</a>
+				</div>
+			</div>
 		</div>
 		<div id="jsm_custom_login_display" style="display:none;">
 		     <p>
