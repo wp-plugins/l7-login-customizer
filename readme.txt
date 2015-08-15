@@ -32,7 +32,7 @@ Users can:
 <h4>Usefull CSS</h4>
 <blockquote>
 <em>Soon to be a setting</em>
-<h4>Hide registration, forgot password links</h4>
+<h4>Hide registration and forgot password links</h4>
 <p>.login #nav {<br />
 &nbsp;&nbsp;display:none;<br />
 }
